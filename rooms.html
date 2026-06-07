@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-sr="Smeštaj — Simpor K9 Dog Resort">Accommodation — Simpor K9 Dog Resort</title>
+<meta name="description" content="Dog accommodation at Simpor Dog Resort — comfortable, climate-controlled suites with professional care and individual attention."/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+<style>
+  .page-hero.rooms { --ph-bg: url('images/res5.jpg'); }
+</style>
+</head>
+<body>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay-lang">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="index.html" onclick="closeMobile()" data-sr="Početna">Home</a>
+  <a href="about.html" onclick="closeMobile()" data-sr="O nama">About</a>
+  <a href="services.html" onclick="closeMobile()" data-sr="Usluge">Services</a>
+  <a href="rooms.html" onclick="closeMobile()" data-sr="Smeštaj">Suites</a>
+  <a href="gallery.html" onclick="closeMobile()" data-sr="Galerija">Gallery</a>
+  <a href="contact.html" onclick="closeMobile()" data-sr="Kontakt">Contact</a>
+  <a href="booking.html" onclick="closeMobile()" data-sr="Rezerviši boravak">Book a Stay</a>
+</div>
+
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="images/logo.png" alt="Simpor"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-sr="Početna">Home</a></li>
+    <li><a href="about.html" data-sr="O nama">About</a></li>
+    <li><a href="services.html" data-sr="Usluge">Services</a></li>
+    <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+    <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+    <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="booking.html" class="nav-cta" data-sr="Rezerviši boravak">Book a Stay</a>
+  <div class="mobile-lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero rooms">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="index.html" data-sr="Početna">Home</a><span class="sep">›</span><span data-sr="Smeštaj">Suites</span>
+    </div>
+    <p class="eyebrow" data-sr="Smeštaj">Accommodation</p>
+    <h1 data-sr-html="Jedan <em>standard</em><br/>nege">One <em>Standard</em><br/>of Care</h1>
+    <p class="page-hero-sub" data-sr="Svaki gost boravi u istom tipu udobnog, klimatizovanog smeštaja, uz brigu istih ruku koje pripremaju šampione. Bez tarifa, bez dodatnih prodaja — samo profesionalna nega.">Every guest stays in the same kind of comfortable, climate-controlled suite, looked after by the same hands that prepare champions. No tiers, no upsells — just professional care.</p>
+  </div>
+</section>
+
+<!-- ACCOMMODATION -->
+<section class="section">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Naš smeštaj">Our Suite</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Udobno, tiho, <em>uz brigu</em>">Comfortable, Quiet, <em>Cared For</em></h2>
+      <p class="section-lead fade-up" data-sr="Jedan, kvalitetno osmišljen smeštaj — klimatizovan, individualno nadgledan i sa stalnom pažnjom. Svaki pas dobija isti standard nege.">A single, well-built suite design — climate-controlled, individually monitored, and looked after around the clock. Every dog gets the same standard of care.</p>
+    </div>
+
+    <div class="pricing-grid fade-up" style="grid-template-columns:1fr; max-width:680px; margin-left:auto; margin-right:auto;">
+      <div class="price-card" id="suite" style="border-color:var(--border);">
+        <div class="price-tier" data-sr="Standardni smeštaj">Standard Suite</div>
+        <div class="price-amount" style="font-size:34px;" data-sr="Na upit">On request</div>
+        <div class="price-period" data-sr="Pišite za ponudu">Contact for quote</div>
+        <ul class="price-features">
+          <li data-sr="Udoban, klimatizovan prostor">Comfortable, climate-controlled space</li>
+          <li data-sr="Svakodnevne šetnje i boravak u dvorištu">Daily walks and outdoor time</li>
+          <li data-sr="Individualni raspored hranjenja">Individual feeding schedule</li>
+          <li data-sr="Prisustvo osoblja 24/7">24/7 staff presence</li>
+          <li data-sr="Redovni izveštaji tokom boravka">Regular updates throughout the stay</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:60px; text-align:center;" class="fade-up">
+      <a href="booking.html" class="btn-gold" style="display:inline-block;" data-sr="Rezerviši boravak">Reserve a Stay</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Često postavljana pitanja">Frequently Asked</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Pre <em>rezervacije</em>">Before You <em>Book</em></h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <div class="faq-q" data-sr-html="Šta treba da ponesem?<span class=&quot;faq-mark&quot;>+</span>">What do I need to bring?<span class="faq-mark">+</span></div>
+        <div class="faq-a" data-sr="Aktuelnu vakcinalnu knjižicu i, ako želite, lične stvari koje pomažu vašem psu da se oseća kao kod kuće. Sve ostalo dogovorimo prilikom rezervacije.">A current vaccination record and any items that help your dog feel at home. We'll walk you through the rest at booking.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-sr-html="Mogu li poneti hranu mog psa?<span class=&quot;faq-mark&quot;>+</span>">Can I bring my dog's own food?<span class="faq-mark">+</span></div>
+        <div class="faq-a" data-sr="Ne mora. Imamo kvalitetnu hranu na licu mesta, pa nije neophodno da donosite svoju. Ako ipak želite da pas nastavi sa istim brendom, slobodno ga ponesite.">It's not required. We have quality food on site, so you don't have to bring any. If you'd prefer to keep your dog on the same brand, you're welcome to bring it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-sr-html="Koje pse primate?<span class=&quot;faq-mark&quot;>+</span>">Which dogs do you accept?<span class="faq-mark">+</span></div>
+        <div class="faq-a" data-sr="Radimo sa porodičnim, sportskim i radnim psima svih rasa. Pojedinačne situacije razmotrimo pre rezervacije, kako bismo isplanirali pravu negu.">We work with companion, sport, and working dogs of all breeds. Specific cases are discussed individually before booking so we can plan the right care.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-sr-html="Koliko dugo pas može da ostane?<span class=&quot;faq-mark&quot;>+</span>">How long can my dog stay?<span class="faq-mark">+</span></div>
+        <div class="faq-a" data-sr="Od kratkih boravaka do dužih programa — plan prilagođavamo vašim potrebama. Javite nam se i dogovorićemo trajanje zajedno.">From short stays to longer programs — we tailor the plan to your needs. Get in touch and we'll arrange the right length together.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-sr-html="Kako se rezerviše ili menja termin?<span class=&quot;faq-mark&quot;>+</span>">How do I book or make changes?<span class="faq-mark">+</span></div>
+        <div class="faq-a" data-sr="Pozovite nas ili pošaljite mejl — sve ostalo rešavamo mi. Sve izmene rezervacije možete dogovoriti direktno sa nama.">Reach out by phone or email and we'll handle the rest. Any changes to your reservation can be arranged directly with us.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="resort-contact">
+  <div class="contact-wrap">
+    <p class="eyebrow fade-up" data-sr="Spremni">Ready</p>
+    <h2 class="section-h fade-up" data-sr-html="Rezerviši <em>boravak</em>">Book a <em>Stay</em></h2>
+    <p class="contact-desc fade-up" data-sr="Onlajn rezervacija za manje od dva minuta — dostupnost potvrđujemo istog dana.">Reserve online in under two minutes — we will confirm availability the same day.</p>
+    <div style="margin-top:30px;" class="fade-up">
+      <a href="booking.html" class="btn-gold" style="display:inline-block;" data-sr="Rezerviši sada">Reserve Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc" data-sr="Premium dog resort i profesionalni centar za uzgoj, obuku i razvoj radnih i sportskih pasa. Više od 30 godina međunarodnog iskustva.">Premium dog resort, professional center for the breeding, training, and development of working and sport dogs. Built on 30+ years of international excellence.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Navigacija">Navigation</div>
+      <ul class="f-links">
+        <li><a href="index.html" data-sr="Početna">Home</a></li>
+        <li><a href="about.html" data-sr="O nama">About</a></li>
+        <li><a href="services.html" data-sr="Usluge">Services</a></li>
+        <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+        <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+        <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Usluge">Services</div>
+      <ul class="f-links">
+        <li><a href="services.html#boarding" data-sr="Smeštaj">Boarding</a></li>
+        <li><a href="services.html#training" data-sr="Održavanje treninga">Training Maintenance</a></li>
+        <li><a href="services.html#play" data-sr="Igra i uživanje">Play &amp; Enjoyment</a></li>
+        <li><a href="services.html#grooming" data-sr="Nega i spa">Grooming &amp; Spa</a></li>
+        <li><a href="services.html#nutrition" data-sr="Plan ishrane">Nutrition Plans</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Kontakt">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="tel:+38164491903">+381 64 4919030</a></li>
+        <li><a href="contact.html" data-sr="Srbija · Šumadija">Serbia · Šumadija</a></li>
+        <li><a href="contact.html">FCI 3428</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-bottom-left" data-sr="© 2026 Simpor Dog Resort. Sva prava zadržana.">© 2026 Simpor Dog Resort. All rights reserved.</div>
+    <div class="f-fci-badge" data-sr-html="FCI <span>3428</span> · Osnovan <span>1994</span>">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>

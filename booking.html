@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-sr="Rezerviši boravak — Simpor K9 Dog Resort">Book a Stay — Simpor K9 Dog Resort</title>
+<meta name="description" content="Reserve a stay at Simpor K9 Dog Resort. Select dates and services. Confirmation by phone or email."/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay-lang">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="index.html" onclick="closeMobile()" data-sr="Početna">Home</a>
+  <a href="about.html" onclick="closeMobile()" data-sr="O nama">About</a>
+  <a href="services.html" onclick="closeMobile()" data-sr="Usluge">Services</a>
+  <a href="rooms.html" onclick="closeMobile()" data-sr="Smeštaj">Suites</a>
+  <a href="gallery.html" onclick="closeMobile()" data-sr="Galerija">Gallery</a>
+  <a href="contact.html" onclick="closeMobile()" data-sr="Kontakt">Contact</a>
+  <a href="booking.html" onclick="closeMobile()" data-sr="Rezerviši boravak">Book a Stay</a>
+</div>
+
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="images/logo.png" alt="Simpor"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-sr="Početna">Home</a></li>
+    <li><a href="about.html" data-sr="O nama">About</a></li>
+    <li><a href="services.html" data-sr="Usluge">Services</a></li>
+    <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+    <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+    <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="booking.html" class="nav-cta" data-sr="Rezerviši boravak">Book a Stay</a>
+  <div class="mobile-lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="booking-section">
+  <div class="booking-wrap">
+
+    <!-- ASIDE -->
+    <aside class="booking-aside">
+      <div class="page-breadcrumb">
+        <a href="index.html" data-sr="Početna">Home</a><span class="sep">›</span><span data-sr="Rezerviši boravak">Book a Stay</span>
+      </div>
+      <p class="eyebrow" data-sr="Rezervacija">Reservation</p>
+      <h1 data-sr-html="Rezerviši <em>boravak</em>">Book a <em>Stay</em></h1>
+      <p data-sr="Pošaljite nam informacije o vašem psu i datume. Potvrđujemo dostupnost istog dana, najčešće u roku od nekoliko sati.">Tell us about your dog and your dates. We confirm availability the same day, usually within a few hours.</p>
+      <p data-sr="Cena prikazana je procena na osnovu vašeg izbora — konačan iznos potvrđuje naš tim pre bilo kakvog plaćanja.">Pricing shown is an estimate based on your selections — final amount is confirmed by our team before any deposit.</p>
+
+      <div class="booking-trust">
+        <div class="booking-trust-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div data-sr-html="<strong>Sigurno</strong>Vaši podaci se čuvaju samo radi vođenja rezervacije."><strong>Secure</strong>Your data is stored only for the purpose of managing your reservation.</div>
+        </div>
+        <div class="booking-trust-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div data-sr-html="<strong>Potvrda istog dana</strong>Odgovaramo telefonom ili mejlom u roku od nekoliko sati, uključujući vikende."><strong>Same-day confirmation</strong>We respond by phone or email within a few hours, including weekends.</div>
+        </div>
+        <div class="booking-trust-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <div data-sr-html="<strong>Pravi stručnjaci</strong>Iskusni kinolozi sa više od 30 godina rada brinu o vašem psu."><strong>Real handlers</strong>Working cynologists with 30+ years of experience handle your dog.</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- FORM -->
+    <div>
+      <form id="bookingForm" class="booking-form">
+        <div class="booking-step-head">
+          <div class="booking-step-title" data-sr="Detalji boravka">Stay Details</div>
+          <div class="booking-step-count" data-sr="Korak 01 / 03">Step 01 / 03</div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label data-sr-html="Dolazak <em>*</em>">Check-in <em>*</em></label>
+            <input type="date" name="check_in" id="checkIn" required/>
+          </div>
+          <div class="form-field">
+            <label data-sr-html="Odlazak <em>*</em>">Check-out <em>*</em></label>
+            <input type="date" name="check_out" id="checkOut" required/>
+          </div>
+          <input type="hidden" name="room_type" id="roomType" value="suite"/>
+          <div class="form-field col-2">
+            <label data-sr="Dodatne usluge">Additional Services</label>
+            <div class="svc-pick-grid" id="servicePicker">
+              <label class="check-row">
+                <input type="checkbox" name="svc" value="training"/>
+                <div class="ck-body" data-sr-html="<strong>Održavanje treninga</strong><span>Na upit</span>"><strong>Training Maintenance</strong><span>On request</span></div>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" name="svc" value="play"/>
+                <div class="ck-body" data-sr-html="<strong>Igra i uživanje</strong><span>Uključeno</span>"><strong>Play &amp; Enjoyment</strong><span>Included</span></div>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" name="svc" value="grooming"/>
+                <div class="ck-body" data-sr-html="<strong>Nega i spa</strong><span>Na upit</span>"><strong>Grooming &amp; Spa</strong><span>On request</span></div>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" name="svc" value="pickup"/>
+                <div class="ck-body" data-sr-html="<strong>Preuzimanje / dovoz</strong><span>Na upit</span>"><strong>Pickup / Drop-off</strong><span>On request</span></div>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" name="svc" value="vet_checkup"/>
+                <div class="ck-body" data-sr-html="<strong>Veterinarski pregled</strong><span>Na upit</span>"><strong>Veterinary Check-in</strong><span>On request</span></div>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" name="svc" value="photos"/>
+                <div class="ck-body" data-sr-html="<strong>Svakodnevne fotografije</strong><span>Na upit</span>"><strong>Daily Photo Updates</strong><span>On request</span></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-divider">
+          <div class="booking-step-head" style="border:none; margin-bottom:0; padding:0;">
+            <div class="booking-step-title" data-sr="O vašem psu">About Your Dog</div>
+            <div class="booking-step-count" data-sr="Korak 02 / 03">Step 02 / 03</div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label data-sr-html="Ime psa <em>*</em>">Dog Name <em>*</em></label>
+            <input type="text" name="dog_name" required placeholder="e.g. Argo" data-sr-placeholder="npr. Argo"/>
+          </div>
+          <div class="form-field">
+            <label data-sr="Rasa">Breed</label>
+            <input type="text" name="dog_breed" placeholder="e.g. German Shepherd" data-sr-placeholder="npr. Nemački ovčar"/>
+          </div>
+          <div class="form-field">
+            <label data-sr="Godine">Age</label>
+            <input type="text" name="dog_age" placeholder="e.g. 3 years" data-sr-placeholder="npr. 3 godine"/>
+          </div>
+          <div class="form-field">
+            <label data-sr="Težina">Weight</label>
+            <input type="text" name="dog_weight" placeholder="e.g. 32 kg" data-sr-placeholder="npr. 32 kg"/>
+          </div>
+          <div class="form-field">
+            <label data-sr="Pol">Gender</label>
+            <select name="dog_gender">
+              <option value="" data-sr="— izaberi —">— select —</option>
+              <option value="male" data-sr="Mužjak">Male</option>
+              <option value="female" data-sr="Ženka">Female</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label data-sr="Temperament">Temperament</label>
+            <select name="dog_temperament">
+              <option value="" data-sr="— izaberi —">— select —</option>
+              <option value="calm" data-sr="Smiren">Calm</option>
+              <option value="balanced" data-sr="Uravnotežen">Balanced</option>
+              <option value="high_drive" data-sr="Visok pogon / radni">High-drive / working</option>
+              <option value="anxious" data-sr="Nervozan / plašljiv">Anxious / shy</option>
+            </select>
+          </div>
+          <div class="form-field col-2">
+            <label class="check-row" style="margin-top:6px;">
+              <input type="checkbox" name="dog_neutered"/>
+              <div class="ck-body" data-sr-html="<strong>Sterilisan / kastriran</strong><span>Pomaže nam da pravilno organizujemo druženje sa drugim psima.</span>"><strong>Neutered / Spayed</strong><span>Helps us match group play time correctly.</span></div>
+            </label>
+          </div>
+          <div class="form-field col-2">
+            <label class="check-row">
+              <input type="checkbox" name="dog_vaccinated" required/>
+              <div class="ck-body" data-sr-html="<strong>Vakcinacija je redovna <em>*</em></strong><span>Obavezno za boravak — knjižicu proveravamo pri prijemu.</span>"><strong>Vaccinations are up to date <em>*</em></strong><span>DHPP, Rabies, Bordetella. Required for boarding — booklet checked at intake.</span></div>
+            </label>
+          </div>
+          <div class="form-field col-2">
+            <label data-sr="Vrsta hrane / dijeta">Food Brand / Diet</label>
+            <input type="text" name="food_brand" placeholder="e.g. Royal Canin Maxi Adult, 2 meals/day" data-sr-placeholder="npr. Royal Canin Maxi Adult, 2 obroka dnevno"/>
+          </div>
+          <div class="form-field col-2">
+            <label data-sr="Lekovi / napomene">Medication / Notes</label>
+            <textarea name="medication" placeholder="Any meds, allergies, behavioural quirks, or routines we should follow…" data-sr-placeholder="Lekovi, alergije, navike u ponašanju ili rutine koje treba da pratimo…"></textarea>
+          </div>
+        </div>
+
+        <div class="booking-divider">
+          <div class="booking-step-head" style="border:none; margin-bottom:0; padding:0;">
+            <div class="booking-step-title" data-sr="Vaši podaci">Your Details</div>
+            <div class="booking-step-count" data-sr="Korak 03 / 03">Step 03 / 03</div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label data-sr-html="Ime i prezime <em>*</em>">Full Name <em>*</em></label>
+            <input type="text" name="owner_name" required placeholder="Your name" data-sr-placeholder="Vaše ime"/>
+          </div>
+          <div class="form-field">
+            <label data-sr-html="Telefon <em>*</em>">Phone <em>*</em></label>
+            <input type="tel" name="owner_phone" required placeholder="+381 …"/>
+          </div>
+          <div class="form-field col-2">
+            <label data-sr-html="Mejl <em>*</em>">Email <em>*</em></label>
+            <input type="email" name="owner_email" required placeholder="you@example.com"/>
+          </div>
+          <div class="form-field col-2">
+            <label data-sr="Posebne napomene / zahtevi">Special Notes / Requests</label>
+            <textarea name="special_notes" placeholder="Anything else you'd like us to know about your dog or stay." data-sr-placeholder="Bilo šta drugo što treba da znamo o vašem psu ili boravku."></textarea>
+          </div>
+        </div>
+
+        <div class="booking-summary" id="bookingSummary">
+          <div class="booking-summary-row"><span data-sr="Noći">Nights</span><span id="sumNights">0</span></div>
+          <div class="booking-summary-row"><span data-sr="Dodatne usluge">Add-ons</span><span id="sumServices" data-sr="Bez">None</span></div>
+          <div class="booking-summary-row total"><span data-sr="Procenjena cena">Estimated total</span><span id="sumTotal" data-sr="Na upit">On request</span></div>
+        </div>
+
+        <button type="submit" class="booking-submit" id="submitBtn" data-sr="Pošalji zahtev za rezervaciju">Request Reservation</button>
+        <p class="booking-note" data-sr="Slanjem zahteva pristajete da vas kontaktiramo u vezi sa rezervacijom. Vaše podatke ne delimo.">By submitting you agree to be contacted about your reservation. We do not share your data.</p>
+
+        <div id="formError" style="display:none; margin-top:18px; padding:14px 18px; background:rgba(227,106,106,.08); border:1px solid rgba(227,106,106,.4); color:#e36a6a; font-size:13px;"></div>
+      </form>
+
+      <!-- Success state, hidden by default -->
+      <div id="bookingSuccess" class="booking-success" style="display:none;">
+        <div class="booking-success-mark">✓</div>
+        <h2 data-sr-html="Rezervacija <em>primljena</em>">Reservation <em>Received</em></h2>
+        <p data-sr="Hvala — vaš zahtev je zabeležen. Naš tim će potvrditi dostupnost i konačnu cenu telefonom ili mejlom u roku od nekoliko sati.">Thank you — your request has been logged. Our team will confirm availability and the final price by phone or email within a few hours.</p>
+        <p data-sr="Sačuvajte ovaj broj rezervacije ako budete trebali da nas kontaktirate:">Save this reference in case you need to contact us:</p>
+        <div class="ref" id="successRef">—</div>
+        <p style="margin-top:30px;">
+          <a href="index.html" class="btn-outline" style="display:inline-block;" data-sr="Nazad na početnu">Back to Home</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc" data-sr="Premium dog resort i profesionalni centar za uzgoj, obuku i razvoj radnih i sportskih pasa.">Premium dog resort, professional center for the breeding, training, and development of working and sport dogs.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Navigacija">Navigation</div>
+      <ul class="f-links">
+        <li><a href="index.html" data-sr="Početna">Home</a></li>
+        <li><a href="about.html" data-sr="O nama">About</a></li>
+        <li><a href="services.html" data-sr="Usluge">Services</a></li>
+        <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+        <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+        <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Usluge">Services</div>
+      <ul class="f-links">
+        <li><a href="services.html#boarding" data-sr="Smeštaj">Boarding</a></li>
+        <li><a href="services.html#training" data-sr="Održavanje treninga">Training Maintenance</a></li>
+        <li><a href="services.html#play" data-sr="Igra i uživanje">Play &amp; Enjoyment</a></li>
+        <li><a href="services.html#grooming" data-sr="Nega i spa">Grooming &amp; Spa</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Kontakt">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="tel:+38164491903">+381 64 4919030</a></li>
+        <li data-sr="Srbija · Šumadija">Serbia · Šumadija</li>
+        <li>FCI 3428</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-bottom-left" data-sr="© 2026 Simpor Dog Resort. Sva prava zadržana.">© 2026 Simpor Dog Resort. All rights reserved.</div>
+    <div class="f-fci-badge" data-sr-html="FCI <span>3428</span> · Osnovan <span>1994</span>">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+<script type="module">
+  import {
+    supabase, RESERVATIONS_TABLE, PRICING,
+    nightsBetween, calcEstimate, fmtMoney, shortRef
+  } from './supabase-client.js';
+
+  const form = document.getElementById('bookingForm');
+  const successBox = document.getElementById('bookingSuccess');
+  const successRef = document.getElementById('successRef');
+  const errBox = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+
+  const checkIn = document.getElementById('checkIn');
+  const checkOut = document.getElementById('checkOut');
+  const roomType = document.getElementById('roomType');
+
+  const sumNights = document.getElementById('sumNights');
+  const sumServices = document.getElementById('sumServices');
+  const sumTotal = document.getElementById('sumTotal');
+
+  const SR = () => (localStorage.getItem('simpor-lang') || 'sr') === 'sr';
+  const SVC_LABELS_SR = {
+    training: 'Održavanje treninga',
+    grooming: 'Nega i spa',
+    play: 'Igra i uživanje',
+    pickup: 'Preuzimanje / dovoz',
+    vet_checkup: 'Veterinarski pregled',
+    photos: 'Svakodnevne fotografije'
+  };
+
+  // Default check-in = tomorrow, check-out = +3 days
+  const today = new Date();
+  const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+  const inFour = new Date(today); inFour.setDate(today.getDate() + 4);
+  const iso = d => d.toISOString().slice(0,10);
+  checkIn.value = iso(tomorrow);
+  checkOut.value = iso(inFour);
+  checkIn.min = iso(today);
+  checkOut.min = iso(tomorrow);
+
+  // Pre-fill from query string (hero availability widget)
+  const qs = new URLSearchParams(window.location.search);
+  if (qs.get('ci')) checkIn.value = qs.get('ci');
+  if (qs.get('co')) checkOut.value = qs.get('co');
+  if (qs.get('room') && ['suite'].includes(qs.get('room'))) {
+    roomType.value = qs.get('room');
+  }
+
+  function selectedServices() {
+    return Array.from(form.querySelectorAll('input[name="svc"]:checked')).map(i => i.value);
+  }
+
+  function updateSummary() {
+    const nights = nightsBetween(checkIn.value, checkOut.value);
+    const svcs = selectedServices();
+
+    sumNights.textContent = nights;
+    sumServices.textContent = svcs.length
+      ? svcs.map(s => SR() ? (SVC_LABELS_SR[s] || s) : PRICING.services[s].label).join(', ')
+      : (SR() ? 'Bez' : 'None');
+    sumTotal.textContent = SR() ? 'Na upit' : 'On request';
+
+    // make sure checkout >= checkin + 1
+    if (checkIn.value) {
+      const ci = new Date(checkIn.value);
+      ci.setDate(ci.getDate() + 1);
+      checkOut.min = iso(ci);
+      if (checkOut.value && new Date(checkOut.value) <= new Date(checkIn.value)) {
+        checkOut.value = iso(ci);
+      }
+    }
+  }
+  form.addEventListener('change', updateSummary);
+  form.addEventListener('input', updateSummary);
+  updateSummary();
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    errBox.style.display = 'none';
+
+    const nights = nightsBetween(checkIn.value, checkOut.value);
+    if (nights < 1) {
+      errBox.textContent = SR()
+        ? 'Odlazak mora biti posle dolaska.'
+        : 'Check-out must be after check-in.';
+      errBox.style.display = 'block';
+      return;
+    }
+
+    const svcs = selectedServices();
+    const total = calcEstimate(roomType.value, svcs, nights);
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    const payload = {
+      owner_name:   data.owner_name?.trim(),
+      owner_email:  data.owner_email?.trim(),
+      owner_phone:  data.owner_phone?.trim(),
+      dog_name:     data.dog_name?.trim(),
+      dog_breed:    data.dog_breed?.trim() || null,
+      dog_age:      data.dog_age?.trim() || null,
+      dog_weight:   data.dog_weight?.trim() || null,
+      dog_gender:   data.dog_gender || null,
+      dog_neutered: !!data.dog_neutered,
+      dog_vaccinated: !!data.dog_vaccinated,
+      dog_temperament: data.dog_temperament || null,
+      check_in:     data.check_in,
+      check_out:    data.check_out,
+      room_type:    data.room_type,
+      services:     svcs,
+      food_brand:   data.food_brand?.trim() || null,
+      medication:   data.medication?.trim() || null,
+      special_notes: data.special_notes?.trim() || null,
+      total_estimate: total,
+      status: 'pending'
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = SR() ? 'Slanje…' : 'Sending…';
+
+    const { data: inserted, error } = await supabase
+      .from(RESERVATIONS_TABLE)
+      .insert(payload)
+      .select()
+      .single();
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = SR() ? 'Pošalji zahtev za rezervaciju' : 'Request Reservation';
+
+    if (error) {
+      console.error(error);
+      errBox.textContent = SR()
+        ? 'Žao nam je — rezervacija trenutno ne može da se pošalje. Pokušajte ponovo ili nas pozovite. (' + (error.message || 'Nepoznata greška') + ')'
+        : 'Sorry — we could not submit your reservation right now. Please try again or call us directly. (' + (error.message || 'Unknown error') + ')';
+      errBox.style.display = 'block';
+      return;
+    }
+
+    successRef.textContent = shortRef(inserted.id);
+    form.style.display = 'none';
+    successBox.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

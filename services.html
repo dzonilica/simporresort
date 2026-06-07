@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-sr="Usluge — Simpor K9 Dog Resort">Services — Simpor K9 Dog Resort</title>
+<meta name="description" content="Services at Simpor Dog Resort: boarding, training maintenance, play & enjoyment, grooming, socialization, and veterinary coordination."/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+<style>
+  .page-hero.services { --ph-bg: url('images/res2.jpg'); }
+</style>
+</head>
+<body>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay-lang">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="index.html" onclick="closeMobile()" data-sr="Početna">Home</a>
+  <a href="about.html" onclick="closeMobile()" data-sr="O nama">About</a>
+  <a href="services.html" onclick="closeMobile()" data-sr="Usluge">Services</a>
+  <a href="rooms.html" onclick="closeMobile()" data-sr="Smeštaj">Suites</a>
+  <a href="gallery.html" onclick="closeMobile()" data-sr="Galerija">Gallery</a>
+  <a href="contact.html" onclick="closeMobile()" data-sr="Kontakt">Contact</a>
+  <a href="booking.html" onclick="closeMobile()" data-sr="Rezerviši boravak">Book a Stay</a>
+</div>
+
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="images/logo.png" alt="Simpor"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-sr="Početna">Home</a></li>
+    <li><a href="about.html" data-sr="O nama">About</a></li>
+    <li><a href="services.html" data-sr="Usluge">Services</a></li>
+    <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+    <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+    <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="booking.html" class="nav-cta" data-sr="Rezerviši boravak">Book a Stay</a>
+  <div class="mobile-lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero services">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="index.html" data-sr="Početna">Home</a><span class="sep">›</span><span data-sr="Usluge">Services</span>
+    </div>
+    <p class="eyebrow" data-sr="Šta nudimo">What We Offer</p>
+    <h1 data-sr-html="Kompletna <em>nega</em>">Care, <em>End to End</em></h1>
+    <p class="page-hero-sub" data-sr="Od smeštaja i hranjenja do nege, oporavka i strukturisanog treninga. Svaku uslugu pružaju ljudi kojima je rad sa psima posao — ne uzgredno čuvanje.">From boarding and feeding to grooming, recovery, and structured training. Every service is delivered by people whose day job is working with dogs — not just sitting them.</p>
+  </div>
+</section>
+
+<!-- SERVICES TABLE -->
+<section class="section">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Sve usluge">All Services</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Usluge i <em>šta uključuju</em>">Services &amp; <em>Inclusions</em></h2>
+      <p class="section-lead fade-up" data-sr="Svaka usluga se prilagođava vašem psu. Javite nam se za ponudu na osnovu smeštaja, dužine boravka i programa koji vašem psu treba.">Each service is tailored to your dog. Get in touch for a personalised quote based on suite, length of stay, and the program your dog needs.</p>
+    </div>
+
+    <div class="svc-list fade-up">
+      <div class="svc-row" id="boarding">
+        <div class="svc-num">01</div>
+        <div class="svc-title" data-sr="Smeštaj">Boarding</div>
+        <div class="svc-desc" data-sr="Klimatizovan smeštaj, svakodnevne šetnje, individualno hranjenje i nadzor 24/7 — jedan standard nege za svakog gosta.">Climate-controlled suite, daily walks, individual feeding, and 24/7 supervision — one standard of care for every guest.</div>
+        <div class="svc-price" data-sr-html="Na upit<span>Pišite za ponudu</span>">On request<span>Contact for quote</span></div>
+      </div>
+      <div class="svc-row" id="training">
+        <div class="svc-num">02</div>
+        <div class="svc-title" data-sr="Održavanje treninga">Training Maintenance</div>
+        <div class="svc-desc" data-sr="Svakodnevne sesije poslušnosti, fokusa i komandi sa sertifikovanim vodičima. Pas se vraća kući oštrijeg uma nego kad je otišao.">Daily obedience, focus, and command sessions delivered by certified handlers. Your dog returns sharper than they left.</div>
+        <div class="svc-price" data-sr-html="Na upit<span>Pišite za ponudu</span>">On request<span>Contact for quote</span></div>
+      </div>
+      <div class="svc-row" id="play">
+        <div class="svc-num">03</div>
+        <div class="svc-title" data-sr="Igra i uživanje">Play &amp; Enjoyment</div>
+        <div class="svc-desc" data-sr="Programi igre i opuštanja prilagođeni karakteru psa — slobodna igra, interaktivne aktivnosti i mirni trenuci za odmor.">Tailored play and relaxation programs — free play, interactive activities, and calm rest moments designed around each dog's personality.</div>
+        <div class="svc-price" data-sr-html="Uključeno<span>Sa svakim boravkom</span>">Included<span>With every stay</span></div>
+      </div>
+      <div class="svc-row" id="socialization">
+        <div class="svc-num">04</div>
+        <div class="svc-title" data-sr="Socijalizacija">Socialization</div>
+        <div class="svc-desc" data-sr="Druženje pod nadzorom sa pažljivo izabranim psima. Grupišemo pse samo kada se temperament, veličina i stil igre slažu — nikada nasumično.">Supervised social sessions with matched dogs. We only group dogs whose temperament, size, and play style are appropriate — never blindly.</div>
+        <div class="svc-price" data-sr-html="Uključeno<span>Sa svakim boravkom</span>">Included<span>With every stay</span></div>
+      </div>
+      <div class="svc-row" id="grooming">
+        <div class="svc-num">05</div>
+        <div class="svc-title" data-sr="Nega i spa">Grooming &amp; Spa</div>
+        <div class="svc-desc" data-sr="Kupanje, češljanje, sečenje noktiju, čišćenje ušiju i nega dlake. Obavlja se pred odlazak, tako da pas stiže kući uređen.">Bath, brush, nail trim, ear cleaning, and coat condition. Performed before pickup so your dog arrives home presentable.</div>
+        <div class="svc-price" data-sr-html="Na upit<span>Pišite za ponudu</span>">On request<span>Contact for quote</span></div>
+      </div>
+      <div class="svc-row" id="nutrition">
+        <div class="svc-num">06</div>
+        <div class="svc-title" data-sr="Plan ishrane">Nutrition Plans</div>
+        <div class="svc-desc" data-sr="Pratimo ishranu vašeg psa u potpunosti. Na zahtev je dostupna kvalitetna hrana; sirovo i specijalno propisane dijete uz odgovarajuće rukovanje.">We follow your dog's diet exactly. Premium kibble available on request; raw and prescription diets supported with proper handling.</div>
+        <div class="svc-price" data-sr-html="Uključeno<span>Sa svakim boravkom</span>">Included<span>With every stay</span></div>
+      </div>
+      <div class="svc-row" id="vet">
+        <div class="svc-num">07</div>
+        <div class="svc-title" data-sr="Veterinarski pregled">Veterinary Check-in</div>
+        <div class="svc-desc" data-sr="Opcioni pregled veterinara po dolasku. Preporučuje se za starije pse, duže boravke i posle bilo kakvog lečenja.">Optional on-arrival check-up by a partner veterinarian. Recommended for senior dogs, longer stays, and any post-treatment recovery.</div>
+        <div class="svc-price" data-sr-html="Na upit<span>Pišite za ponudu</span>">On request<span>Contact for quote</span></div>
+      </div>
+      <div class="svc-row" id="photos">
+        <div class="svc-num">08</div>
+        <div class="svc-title" data-sr="Svakodnevne fotografije">Daily Photo Updates</div>
+        <div class="svc-desc" data-sr="Pažljivo izabrane svakodnevne fotografije preko WhatsApp-a. Iskren pogled na to kako je vaš pas — bez naštimovanih marketinških slika.">Curated daily photos via WhatsApp. Get a real look at how your dog is doing — not staged marketing shots.</div>
+        <div class="svc-price" data-sr-html="Na upit<span>Pišite za ponudu</span>">On request<span>Contact for quote</span></div>
+      </div>
+      <div class="svc-row" id="pickup">
+        <div class="svc-num">09</div>
+        <div class="svc-title" data-sr="Preuzimanje i dovoz">Pickup &amp; Drop-off</div>
+        <div class="svc-desc" data-sr="Prevoz od vrata do vrata u Šumadiji i Beogradu. Posebne rute za duža putovanja po dogovoru.">Door-to-door transport within Šumadija and Belgrade. Custom routes by arrangement for longer-distance trips.</div>
+        <div class="svc-price" data-sr-html="Na upit<span>Pišite za ponudu</span>">On request<span>Contact for quote</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="resort-contact">
+  <div class="contact-wrap">
+    <p class="eyebrow fade-up" data-sr="Planirajte boravak">Plan a Stay</p>
+    <h2 class="section-h fade-up" data-sr-html="Sastavite <em>boravak</em><br/>vašem psu">Build Your<br/>Dog's <em>Stay</em></h2>
+    <p class="contact-desc fade-up" data-sr="Pošaljite nam datume, dodajte usluge koje vašem psu trebaju i potvrdićemo dostupnost u roku od nekoliko sati.">Tell us your dates, add any services your dog needs, and we will confirm availability within hours.</p>
+    <div style="margin-top:30px;" class="fade-up">
+      <a href="booking.html" class="btn-gold" style="display:inline-block;" data-sr="Rezerviši boravak">Book a Stay</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc" data-sr="Premium dog resort i profesionalni centar za uzgoj, obuku i razvoj radnih i sportskih pasa. Više od 30 godina međunarodnog iskustva.">Premium dog resort, professional center for the breeding, training, and development of working and sport dogs. Built on 30+ years of international excellence.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Navigacija">Navigation</div>
+      <ul class="f-links">
+        <li><a href="index.html" data-sr="Početna">Home</a></li>
+        <li><a href="about.html" data-sr="O nama">About</a></li>
+        <li><a href="services.html" data-sr="Usluge">Services</a></li>
+        <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+        <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+        <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Usluge">Services</div>
+      <ul class="f-links">
+        <li><a href="services.html#boarding" data-sr="Smeštaj">Boarding</a></li>
+        <li><a href="services.html#training" data-sr="Održavanje treninga">Training Maintenance</a></li>
+        <li><a href="services.html#play" data-sr="Igra i uživanje">Play &amp; Enjoyment</a></li>
+        <li><a href="services.html#grooming" data-sr="Nega i spa">Grooming &amp; Spa</a></li>
+        <li><a href="services.html#nutrition" data-sr="Plan ishrane">Nutrition Plans</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Kontakt">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="tel:+38164491903">+381 64 4919030</a></li>
+        <li><a href="contact.html" data-sr="Srbija · Šumadija">Serbia · Šumadija</a></li>
+        <li><a href="contact.html">FCI 3428</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-bottom-left" data-sr="© 2026 Simpor Dog Resort. Sva prava zadržana.">© 2026 Simpor Dog Resort. All rights reserved.</div>
+    <div class="f-fci-badge" data-sr-html="FCI <span>3428</span> · Osnovan <span>1994</span>">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

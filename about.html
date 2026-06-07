@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-sr="O nama — Simpor K9 Dog Resort">About — Simpor K9 Dog Resort</title>
+<meta name="description" content="The story behind Simpor K9 — three decades of cynology, championship-grade training, and the philosophy that shaped our dog resort in Šumadija."/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+<style>
+  /* hero background for this page */
+  .page-hero.about { --ph-bg: url('images/res4.jpg'); }
+</style>
+</head>
+<body>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay-lang">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="index.html" onclick="closeMobile()" data-sr="Početna">Home</a>
+  <a href="about.html" onclick="closeMobile()" data-sr="O nama">About</a>
+  <a href="services.html" onclick="closeMobile()" data-sr="Usluge">Services</a>
+  <a href="rooms.html" onclick="closeMobile()" data-sr="Smeštaj">Suites</a>
+  <a href="gallery.html" onclick="closeMobile()" data-sr="Galerija">Gallery</a>
+  <a href="contact.html" onclick="closeMobile()" data-sr="Kontakt">Contact</a>
+  <a href="booking.html" onclick="closeMobile()" data-sr="Rezerviši boravak">Book a Stay</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="images/logo.png" alt="Simpor"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-sr="Početna">Home</a></li>
+    <li><a href="about.html" data-sr="O nama">About</a></li>
+    <li><a href="services.html" data-sr="Usluge">Services</a></li>
+    <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+    <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+    <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="booking.html" class="nav-cta" data-sr="Rezerviši boravak">Book a Stay</a>
+  <div class="mobile-lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero about">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="index.html" data-sr="Početna">Home</a>
+      <span class="sep">›</span>
+      <span data-sr="O nama">About</span>
+    </div>
+    <p class="eyebrow" data-sr="O Simporu">About Simpor</p>
+    <h1 data-sr-html="Tri decenije<br/>u <em>kinologiji</em>">Three Decades<br/>of <em>Cynology</em></h1>
+    <p class="page-hero-sub" data-sr="Od jedne posvećene odgajivačnice do kompletnog Dog resorta — priča o stvaranju mesta gde svaki radni pas i porodični ljubimac dobija isti, beskompromisni standard nege.">From a single passionate kennel to a complete dog resort — the story of building a place where every working line and family companion gets the same uncompromising standard of care.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section">
+  <div class="section-wrap">
+    <div class="two-col">
+      <div class="fade-up">
+        <p class="eyebrow" data-sr="Naša priča">Our Story</p>
+        <h2 class="section-h2" data-sr-html="Život posvećen <em>radnim psima</em>">A Lifetime With <em>Working Dogs</em></h2>
+        <p style="margin-top:30px;" data-sr="Simpor je nastao 1994. godine sa jednim uverenjem: psi rade najbolje kada žive u uslovima koji poštuju njihovu biologiju, njihove nagone i njihovu individualnost. Iz jedne odgajivačnice u centralnoj Srbiji izrasli smo u kompletan centar za uzgoj, obuku i negu sportskih i radnih pasa.">Simpor began in 1994 with a single conviction: dogs do their best work when they live in conditions that respect their biology, their drives, and their individuality. From a working kennel in central Serbia, we have grown into a full center for the breeding, training, and care of sport and working dogs.</p>
+        <p data-sr="Naši vodiči više od tri decenije putuju, takmiče se i obučavaju širom sveta. To iskustvo danas definiše naše standarde — svaki protokol, svaki smeštaj, svaka šetnja, gradi se na lekcijama iz svetskih takmičenja, vrhunskih odgajivačnica i veterinarskih stručnjaka širom Evrope.">Our handlers have travelled, competed, and trained internationally for over three decades. That experience is what defines our standards now — every protocol, every suite, every walk is built on lessons learned from world-class trials, top-tier breeders, and veterinary specialists across Europe.</p>
+        <p data-sr-html="Danas Simpor Dog Resort postoji uz našu šampionsku odgajivačnicu. Iste ruke koje pripremaju pse za IPO takmičenja brinu o vašem psu dok ste odsutni. <em>To je razlika.</em>">Today, the Simpor Dog Resort exists alongside our championship kennel. The same hands that prepare dogs for IPO trials care for your dog while you are away. <em>That is the difference.</em></p>
+      </div>
+      <div class="two-col-img fade-up">
+        <img src="images/res.jpg" alt="Simpor handlers"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section alt">
+  <div class="section-wrap">
+    <div class="two-col reversed">
+      <div class="two-col-img fade-up">
+        <img src="images/res5.jpg" alt="Simpor philosophy"/>
+      </div>
+      <div class="fade-up">
+        <p class="eyebrow" data-sr="Filozofija">Philosophy</p>
+        <h2 class="section-h2" data-sr-html="Bez <em>prečica</em>">No Shortcuts, <em>Ever</em></h2>
+        <p style="margin-top:30px;" data-sr="Pas ne može da vam kaže da mu je neudobno, da je nervozan ili da ga nešto boli. Naš pristup polazi od te odgovornosti. Svakog psa koji boravi kod nas individualno čitaju ljudi koji su decenijama učili da razumeju pse.">A dog cannot tell you it is uncomfortable, anxious, or in pain. Our entire approach starts from that responsibility. Every dog that stays with us is read — individually — by people who have spent decades learning to read dogs.</p>
+        <p data-sr="Ne želimo da rastemo preko granice u kojoj možemo da radimo kvalitetno. Reći ćemo vam kada smo popunjeni. Reći ćemo vam ako vaš pas nije za grupne aktivnosti. Pozvaćemo vas ako nešto ne valja. Briga se ne odvija na autopilotu.">We refuse to scale beyond what we can do well. We will tell you when we are full. We will tell you if your dog is not a fit for group activity. We will phone you if something seems off. There is no auto-renew on care.</p>
+        <p data-sr-html="Cilj je jednostavan: vaš pas izlazi iz Simpora u <em>najmanje</em> istom stanju kao što je stigao — u idealnom slučaju malo spremniji, u boljoj kondiciji i sa više samopouzdanja.">The goal is simple: your dog leaves Simpor in <em>at least</em> the same condition as it arrived, ideally a little sharper, fitter, and more confident.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM / STATS -->
+<section class="section">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="U brojkama">By the Numbers</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Tri decenije, <em>na broju</em>">Three Decades, <em>Counted</em></h2>
+    </div>
+    <div class="facility-stats fade-up" style="margin-top:60px;">
+      <div class="fa-item"><div class="fa-val">1994</div><div class="fa-lbl" data-sr="Osnovan">Founded</div></div>
+      <div class="fa-item"><div class="fa-val">2+</div><div class="fa-lbl" data-sr="Hektara">Hectares</div></div>
+      <div class="fa-item"><div class="fa-val">FCI 3428</div><div class="fa-lbl" data-sr="Registrovana odgajivačnica">Registered Kennel</div></div>
+      <div class="fa-item"><div class="fa-val">24/7</div><div class="fa-lbl" data-sr="Nadzor">Supervision</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section alt">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Za šta se zalažemo">What We Stand For</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Četiri <em>pravila bez izuzetka</em>">Four <em>Non-Negotiables</em></h2>
+    </div>
+    <div class="resort-features-grid" style="margin-top:60px;">
+      <div class="resort-feature">
+        <div class="rf-num">01</div>
+        <div class="rf-title" data-sr="Individualna nega">Individual Care</div>
+        <p class="rf-desc" data-sr="Nijedan pas nije isti. Svaki gost dobija prilagođen dnevni plan: hranjenje, šetnje, aktivnosti i odmor — na osnovu strukturisanog razgovora pre dolaska.">No two dogs are the same. Every guest gets a tailored daily plan: feeding, walks, enrichment, and rest — built from a structured intake interview before arrival.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">02</div>
+        <div class="rf-title" data-sr="Prava kinologija">Real Cynology</div>
+        <p class="rf-desc" data-sr="Naši vodiči su iskusni kinolozi, a ne čuvari pasa sa strane. Svaka odluka tima zasniva se na decenijama iskustva u takmičenjima, uzgoju i rehabilitaciji.">Our handlers are working cynologists, not part-time pet sitters. Every staff decision is informed by decades of trial, breeding, and rehabilitation experience.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">03</div>
+        <div class="rf-title" data-sr="Otvorena komunikacija">Transparent Communication</div>
+        <p class="rf-desc" data-sr="Dobićete fotografije, iskrene izveštaje i telefonski poziv odmah ako se nešto promeni. Bez iznenađenja kada dolazite po psa.">You will get photo updates, honest reports, and an immediate phone call if anything changes. No surprises when you pick up.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">04</div>
+        <div class="rf-title" data-sr="Saradnja sa veterinarima">Veterinary Cooperation</div>
+        <p class="rf-desc" data-sr="Bliska saradnja sa proverenim veterinarima. Praćenje zdravlja tokom celog boravka, sa dokumentovanim protokolima za svaku situaciju.">Close cooperation with trusted veterinary professionals. Health monitoring throughout every stay, with documented protocols for every scenario.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="resort-contact">
+  <div class="contact-wrap">
+    <p class="eyebrow fade-up" data-sr="Spremni kad i vi">Ready When You Are</p>
+    <h2 class="section-h fade-up" data-sr-html="Rezervišite <em>boravak</em><br/>za svog psa">Reserve Your Dog's<br/><em>Stay</em></h2>
+    <p class="contact-desc fade-up" data-sr="Onlajn rezervacija za dva minuta. Uvek isti standardi.">Two-minute online booking. Same standards, every time.</p>
+    <div style="margin-top:30px;" class="fade-up">
+      <a href="booking.html" class="btn-gold" style="display:inline-block; margin-right:14px;" data-sr="Rezerviši boravak">Book a Stay</a>
+      <a href="contact.html" class="btn-outline" style="display:inline-block;" data-sr="Kontaktiraj nas">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc" data-sr="Premium Dog resort i profesionalni centar za uzgoj, obuku i razvoj radnih i sportskih pasa. Više od 30 godina međunarodnog iskustva.">Premium dog resort, professional center for the breeding, training, and development of working and sport dogs. Built on 30+ years of international excellence.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Navigacija">Navigation</div>
+      <ul class="f-links">
+        <li><a href="index.html" data-sr="Početna">Home</a></li>
+        <li><a href="about.html" data-sr="O nama">About</a></li>
+        <li><a href="services.html" data-sr="Usluge">Services</a></li>
+        <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+        <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+        <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Usluge">Services</div>
+      <ul class="f-links">
+        <li><a href="services.html#boarding" data-sr="Smeštaj">Boarding</a></li>
+        <li><a href="services.html#training" data-sr="Održavanje treninga">Training Maintenance</a></li>
+        <li><a href="services.html#socialization" data-sr="Socijalizacija">Socialization</a></li>
+        <li><a href="services.html#play" data-sr="Igra i uživanje">Play &amp; Enjoyment</a></li>
+        <li><a href="services.html#nutrition" data-sr="Plan ishrane">Nutrition Plans</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Kontakt">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="tel:+38164491903">+381 64 4919030</a></li>
+        <li><a href="contact.html" data-sr="Srbija · Šumadija">Serbia · Šumadija</a></li>
+        <li><a href="contact.html">FCI 3428</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-bottom-left" data-sr="© 2026 Simpor Dog Resort. Sva prava zadržana.">© 2026 Simpor Dog Resort. All rights reserved.</div>
+    <div class="f-fci-badge" data-sr-html="FCI <span>3428</span> · Osnovan <span>1994</span>">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

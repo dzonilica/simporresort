@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-sr="Galerija — Simpor K9 Dog Resort">Gallery — Simpor K9 Dog Resort</title>
+<meta name="description" content="The grounds, the suites, the dogs — Simpor Dog Resort in pictures."/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+<style>
+  .page-hero.gallery { --ph-bg: url('images/res6.jpg'); }
+</style>
+</head>
+<body>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay-lang">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="index.html" onclick="closeMobile()" data-sr="Početna">Home</a>
+  <a href="about.html" onclick="closeMobile()" data-sr="O nama">About</a>
+  <a href="services.html" onclick="closeMobile()" data-sr="Usluge">Services</a>
+  <a href="rooms.html" onclick="closeMobile()" data-sr="Smeštaj">Suites</a>
+  <a href="gallery.html" onclick="closeMobile()" data-sr="Galerija">Gallery</a>
+  <a href="contact.html" onclick="closeMobile()" data-sr="Kontakt">Contact</a>
+  <a href="booking.html" onclick="closeMobile()" data-sr="Rezerviši boravak">Book a Stay</a>
+</div>
+
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="images/logo.png" alt="Simpor"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-sr="Početna">Home</a></li>
+    <li><a href="about.html" data-sr="O nama">About</a></li>
+    <li><a href="services.html" data-sr="Usluge">Services</a></li>
+    <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+    <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+    <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="booking.html" class="nav-cta" data-sr="Rezerviši boravak">Book a Stay</a>
+  <div class="mobile-lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero gallery">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="index.html" data-sr="Početna">Home</a><span class="sep">›</span><span data-sr="Galerija">Gallery</span>
+    </div>
+    <p class="eyebrow" data-sr="Kroz fotografije">In Pictures</p>
+    <h1 data-sr-html="Život u <em>Simporu</em>">Life at <em>Simpor</em></h1>
+    <p class="page-hero-sub" data-sr="Pogled iznutra na imanje, smeštaj i svakodnevnu negu nekih od najboljih srpskih radnih i porodičnih pasa.">A look inside the grounds, the suites, and the day-to-day of caring for some of Serbia's finest working and companion dogs.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Kompletna galerija">Full Gallery</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Lepi <em>trenuci</em>">Moments of <em>Greatness</em></h2>
+      <p class="section-lead fade-up" data-sr="Kliknite na bilo koju sliku za prikaz u punoj veličini. Prevucite na desktopu, „swipe“ na telefonu.">Click any image to view it in full. Drag to pan on desktop, swipe on mobile.</p>
+    </div>
+
+    <div class="full-gallery fade-up">
+      <div class="fg-item wide"><img src="images/res.jpg" alt="Simpor facility wide"/></div>
+      <div class="fg-item"><img src="images/res1.jpg" alt="Simpor dog"/></div>
+      <div class="fg-item"><img src="images/res2.jpg" alt="Simpor training"/></div>
+      <div class="fg-item tall"><img src="images/res3.jpg" alt="Simpor grounds"/></div>
+      <div class="fg-item"><img src="images/res4.jpg" alt="Simpor care"/></div>
+      <div class="fg-item"><img src="images/res5.jpg" alt="Simpor suites"/></div>
+      <div class="fg-item"><img src="images/res6.jpg" alt="Working dogs"/></div>
+      <div class="fg-item"><img src="images/res7.jpg" alt="Training"/></div>
+      <div class="fg-item"><img src="images/res8.jpg" alt="Resort"/></div>
+      <div class="fg-item wide"><img src="images/spa.jpeg" alt="Spa"/></div>
+      <div class="fg-item"><img src="images/97.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/56.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/77777.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/9999.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/8888.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/9.PNG" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/10.PNG" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/55.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/54.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/23.jpg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/00.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/12.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/43.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/65.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/76.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/231.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/323.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/445.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/769.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/3443.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/6776.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/66565.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/09.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/WhatsApp Image 2026-04-12 at 10.44.09.jpeg" alt="Dog"/></div>
+      <div class="fg-item"><img src="images/resort/WhatsApp Image 2026-04-12 at 10.44.092.jpeg" alt="Dog"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="fgLightbox">
+  <div class="lb-wrap">
+    <img id="fgLbImg" class="lb-media" src="" alt=""/>
+    <button class="lb-close" id="fgLbClose" aria-label="Close">×</button>
+    <button class="lb-nav prev" id="fgLbPrev" aria-label="Previous">&#8592;</button>
+    <button class="lb-nav next" id="fgLbNext" aria-label="Next">&#8594;</button>
+    <div class="lb-info" id="fgLbInfo"></div>
+  </div>
+</div>
+
+<section id="resort-contact">
+  <div class="contact-wrap">
+    <p class="eyebrow fade-up" data-sr="Spremni">Ready</p>
+    <h2 class="section-h fade-up" data-sr-html="Dovedi svog psa<br/>u <em>Simpor</em>">Bring Your Dog<br/>to <em>Simpor</em></h2>
+    <div style="margin-top:30px;" class="fade-up">
+      <a href="booking.html" class="btn-gold" style="display:inline-block;" data-sr="Rezerviši boravak">Book a Stay</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc" data-sr="Premium dog resort i profesionalni centar za uzgoj, obuku i razvoj radnih i sportskih pasa.">Premium dog resort, professional center for the breeding, training, and development of working and sport dogs.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Navigacija">Navigation</div>
+      <ul class="f-links">
+        <li><a href="index.html" data-sr="Početna">Home</a></li>
+        <li><a href="about.html" data-sr="O nama">About</a></li>
+        <li><a href="services.html" data-sr="Usluge">Services</a></li>
+        <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+        <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+        <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Usluge">Services</div>
+      <ul class="f-links">
+        <li><a href="services.html#boarding" data-sr="Smeštaj">Boarding</a></li>
+        <li><a href="services.html#training" data-sr="Održavanje treninga">Training Maintenance</a></li>
+        <li><a href="services.html#play" data-sr="Igra i uživanje">Play &amp; Enjoyment</a></li>
+        <li><a href="services.html#grooming" data-sr="Nega i spa">Grooming &amp; Spa</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Kontakt">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="tel:+38164491903">+381 64 4919030</a></li>
+        <li><a href="contact.html" data-sr="Srbija · Šumadija">Serbia · Šumadija</a></li>
+        <li><a href="contact.html">FCI 3428</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-bottom-left" data-sr="© 2026 Simpor Dog Resort. Sva prava zadržana.">© 2026 Simpor Dog Resort. All rights reserved.</div>
+    <div class="f-fci-badge" data-sr-html="FCI <span>3428</span> · Osnovan <span>1994</span>">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+<script>
+  // Lightbox
+  (function(){
+    const items = Array.from(document.querySelectorAll('.fg-item img'));
+    const lb = document.getElementById('fgLightbox');
+    const lbImg = document.getElementById('fgLbImg');
+    const lbInfo = document.getElementById('fgLbInfo');
+    const lbClose = document.getElementById('fgLbClose');
+    const lbPrev = document.getElementById('fgLbPrev');
+    const lbNext = document.getElementById('fgLbNext');
+    let idx = 0;
+
+    function open(i) {
+      idx = i;
+      lbImg.src = items[idx].src;
+      if (lbInfo) lbInfo.textContent = (idx+1) + ' / ' + items.length;
+      lb.classList.add('open');
+    }
+    function close() { lb.classList.remove('open'); }
+    function next() { open((idx+1) % items.length); }
+    function prev() { open((idx-1+items.length) % items.length); }
+
+    items.forEach((img, i) => img.parentElement.addEventListener('click', () => open(i)));
+    if (lbClose) lbClose.addEventListener('click', close);
+    if (lbNext) lbNext.addEventListener('click', next);
+    if (lbPrev) lbPrev.addEventListener('click', prev);
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+  })();
+</script>
+
+</body>
+</html>

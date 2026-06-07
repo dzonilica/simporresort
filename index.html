@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-sr="Simpor K9 Dog Resort — Premium smeštaj i nega · Srbija">Simpor K9 Dog Resort — Premium Boarding &amp; Care · Serbia</title>
+<meta name="description" content="Simpor K9 Dog Resort — exclusive dog boarding, structured play, and premium care for working and companion dogs. Individual treatment, expert staff, Serbia."/>
+<meta name="keywords" content="dog resort Serbia, dog boarding Serbia, luxury dog boarding, working dog boarding, Simpor K9, Simpor Resort, Kragujevac dog resort"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Simpor K9 Dog Center"/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="apple-touch-icon" href="images/logo.png"/>
+<meta property="og:site_name" content="Simpor K9"/>
+<meta property="og:title" content="Simpor K9 Dog Resort — Premium Boarding &amp; Care"/>
+<meta property="og:description" content="Premium dog boarding, structured play, and professional care. Individual treatment, expert staff, set in 2+ hectares of Šumadija nature."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="images/res.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- ═══ LOADER ═══ -->
+<div id="loader">
+  <div class="loader-panel" id="loaderPanelTop"></div>
+  <div class="loader-logo" id="loaderLogo">
+    <img id="loaderIcon" class="loader-paw" src="images/logo.png" alt="Simpor"/>
+    <div>SIMPOR <em>RESORT</em></div>
+    <div class="loader-line" id="loaderLine"></div>
+    <div class="loader-sub" id="loaderSub" data-sr="Premium smeštaj i nega pasa">Premium Dog Boarding &amp; Care</div>
+  </div>
+</div>
+
+<!-- ═══ MOBILE OVERLAY ═══ -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay-lang">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="index.html" onclick="closeMobile()" data-sr="Početna">Home</a>
+  <a href="about.html" onclick="closeMobile()" data-sr="O nama">About</a>
+  <a href="services.html" onclick="closeMobile()" data-sr="Usluge">Services</a>
+  <a href="rooms.html" onclick="closeMobile()" data-sr="Smeštaj">Suites</a>
+  <a href="gallery.html" onclick="closeMobile()" data-sr="Galerija">Gallery</a>
+  <a href="contact.html" onclick="closeMobile()" data-sr="Kontakt">Contact</a>
+  <a href="booking.html" onclick="closeMobile()" data-sr="Rezerviši boravak">Book a Stay</a>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="images/logo.png" alt="Simpor" onerror="this.style.display='none'"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-sr="Početna">Home</a></li>
+    <li><a href="about.html" data-sr="O nama">About</a></li>
+    <li><a href="services.html" data-sr="Usluge">Services</a></li>
+    <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+    <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+    <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="booking.html" class="nav-cta" data-sr="Rezerviši boravak">Book a Stay</a>
+  <div class="mobile-lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="resort-hero">
+  <img class="resort-hero-bg" id="resortHeroBg" src="images/play-04.jpg" alt="Simpor Dog Resort"/>
+  <div class="resort-hero-overlay"></div>
+  <div class="resort-hero-overlay-b"></div>
+
+  <div class="resort-hero-content">
+    <div class="resort-breadcrumb">
+      <a href="index.html" data-sr="Simpor Dog Centar">Simpor Dog Center</a>
+      <span class="sep">›</span>
+      <span data-sr="Dog Resort">Dog Resort</span>
+    </div>
+    <div class="resort-hero-tag">
+      <span data-sr="Premium smeštaj i nega · Osnovano 1994 · FCI 3428">Premium Boarding &amp; Care · Est. 1994 · FCI 3428</span>
+    </div>
+    <h1 class="resort-hero-h1">
+      <span class="line"><span class="line-inner" data-sr="Gde najbolji">Where the</span></span>
+      <span class="line"><span class="line-inner" data-sr-html="psi <em>odmaraju</em>">Best Dogs <em>Rest</em></span></span>
+    </h1>
+    <p class="resort-hero-sub" data-sr="Privatno utočište na dva hektara Šumadije — gde se radni psi opuštaju, sportski psi oporavljaju, a porodični ljubimci uživaju u brizi istih ruku koje pripremaju šampione.">A private retreat on two hectares of Šumadija — where working dogs decompress, sport dogs recover, and family companions are looked after by the same hands that prepare champions.</p>
+
+    <!-- AVAILABILITY MINI-FORM -->
+    <form class="hero-availability" id="heroCheck" action="booking.html" method="get">
+      <div class="hero-avl-field">
+        <label data-sr="Dolazak">Check-in</label>
+        <input type="date" name="ci" id="heroCi" required/>
+      </div>
+      <div class="hero-avl-field">
+        <label data-sr="Odlazak">Check-out</label>
+        <input type="date" name="co" id="heroCo" required/>
+      </div>
+      <div class="hero-avl-field">
+        <label data-sr="Boravak">Stay</label>
+        <select name="room">
+          <option value="suite" selected data-sr="Simpor Smeštaj">Simpor Suite</option>
+        </select>
+      </div>
+      <button type="submit" class="hero-avl-btn" data-sr="Proveri →">Check →</button>
+    </form>
+  </div>
+
+  <div class="resort-hero-badge" id="resortBadge">
+    <div class="resort-badge-ring">
+      <div class="resort-badge-inner">
+        <div class="resort-badge-n" data-sr-html="Premium<br/>Dog<br/>Resort">Premium<br/>Dog<br/>Resort</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" id="scrollHint">
+    <span class="scroll-label" data-sr="Pomeri">Scroll</span>
+    <div class="scroll-track"></div>
+  </div>
+</section>
+
+<!-- ═══ STAT STRIP ═══ -->
+<section class="stat-strip">
+  <div class="stat-strip-wrap">
+    <div class="stat-blk fade-up">
+      <div class="stat-num">30<em>G</em></div>
+      <div class="stat-line"></div>
+      <div class="stat-lbl" data-sr="Godina u kinologiji">Years in cynology</div>
+      <div class="stat-sub" data-sr="Osnovano 1994 — tri decenije uzgoja, obuke i nege.">Founded 1994 — three decades of breeding, training and care.</div>
+    </div>
+    <div class="stat-blk fade-up">
+      <div class="stat-num">2.4<em>ha</em></div>
+      <div class="stat-line"></div>
+      <div class="stat-lbl" data-sr="Privatno imanje">Private grounds</div>
+      <div class="stat-sub" data-sr="Sigurno, ograđeno i osmišljeno usred šumadijske šume.">Secure, fenced, and purpose-built across Šumadija forest.</div>
+    </div>
+    <div class="stat-blk fade-up">
+      <div class="stat-num">FCI<em></em></div>
+      <div class="stat-line"></div>
+      <div class="stat-lbl" data-sr="Registrovani · Br. 3428">Registered · No. 3428</div>
+      <div class="stat-sub" data-sr="Međunarodno sertifikovani odgajivački i trening centar.">Internationally certified breeding &amp; training facility.</div>
+    </div>
+    <div class="stat-blk fade-up">
+      <div class="stat-num">24/7</div>
+      <div class="stat-line"></div>
+      <div class="stat-lbl" data-sr="Stalan nadzor">Live supervision</div>
+      <div class="stat-sub" data-sr="Stručnjaci na licu mesta svakog sata — bez ostavljanja bez nadzora.">Handlers on site every hour — never auto-pilot.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRESS / TRUST STRIP ═══ -->
+<section class="press-strip">
+  <div class="press-wrap">
+    <div class="press-label" data-sr="Pouzdano &amp; prepoznato">Trusted &amp; Recognised By</div>
+    <div class="press-logos">
+      <span class="press-logo">FCI <em>3428</em></span>
+      <span class="press-logo">K<em>S</em>S</span>
+      <span class="press-logo">IGP <em>·</em> IPO</span>
+      <span class="press-logo">Šum<em>adija</em></span>
+      <span class="press-logo">Vet<em>·</em>Partner</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MEDIA SPLIT — STORY ═══ -->
+<section class="media-split">
+  <div class="media-split-img clip-reveal">
+    <img src="images/res.jpg" alt="Simpor facility"/>
+  </div>
+  <div class="media-split-text">
+    <p class="eyebrow fade-up" data-sr="Naša priča">Our Story</p>
+    <h2 class="fade-up" data-sr-html="Život<br/>posvećen <em>radnim psima</em>">A Lifetime<br/>With <em>Working Dogs</em></h2>
+    <p class="fade-up" data-sr="Simpor je počeo 1994. godine sa jednim uverenjem — psi rade najbolje kada žive u uslovima koji poštuju njihovu biologiju, njihove nagone i njihovu individualnost. Iz jedne odgajivačnice radnih pasa izrasli smo u kompletan centar za uzgoj, obuku i negu sportskih i radnih pasa.">Simpor began in 1994 with one conviction — dogs do their best work when they live in conditions that respect their biology, their drives, and their individuality. From a single working kennel, we have grown into a complete center for the breeding, training, and care of sport and working dogs.</p>
+    <p class="fade-up" data-sr-html="Danas, Simpor Dog Resort postoji uz našu šampionsku odgajivačnicu. <em>Iste ruke koje pripremaju pse za IPO takmičenja brinu o vašem psu dok ste odsutni.</em>">Today, the Simpor Dog Resort exists alongside our championship kennel. <em>The same hands that prepare dogs for IPO trials care for your dog while you're away.</em></p>
+    <div style="margin-top:32px;" class="fade-up">
+      <a href="about.html" class="cta-pill" data-sr-html="Pročitajte našu priču <span class=&quot;ar&quot;>→</span>">Read Our Story <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item" data-sr-html="Premium smeštaj <span class=&quot;marquee-dot&quot;></span>">Premium Boarding <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold" data-sr-html="Profesionalna nega <span class=&quot;marquee-dot&quot;></span>">Professional Care <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Specijalisti za radne pse <span class=&quot;marquee-dot&quot;></span>">Working Dog Specialists <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Obuka i igra <span class=&quot;marquee-dot&quot;></span>">Training &amp; Play <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold" data-sr-html="Simpor Dog Resort <span class=&quot;marquee-dot&quot;></span>">Simpor Dog Resort <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Nadzor 24h <span class=&quot;marquee-dot&quot;></span>">24h Supervision <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Iskusni stručnjaci <span class=&quot;marquee-dot&quot;></span>">Expert Handlers <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold" data-sr-html="30+ godina iskustva <span class=&quot;marquee-dot&quot;></span>">30+ Years of Excellence <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Premium smeštaj <span class=&quot;marquee-dot&quot;></span>">Premium Boarding <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold" data-sr-html="Profesionalna nega <span class=&quot;marquee-dot&quot;></span>">Professional Care <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Specijalisti za radne pse <span class=&quot;marquee-dot&quot;></span>">Working Dog Specialists <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Obuka i igra <span class=&quot;marquee-dot&quot;></span>">Training &amp; Play <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold" data-sr-html="Simpor Dog Resort <span class=&quot;marquee-dot&quot;></span>">Simpor Dog Resort <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Nadzor 24h <span class=&quot;marquee-dot&quot;></span>">24h Supervision <span class="marquee-dot"></span></span>
+    <span class="marquee-item" data-sr-html="Iskusni stručnjaci <span class=&quot;marquee-dot&quot;></span>">Expert Handlers <span class="marquee-dot"></span></span>
+    <span class="marquee-item marquee-gold" data-sr-html="30+ godina iskustva <span class=&quot;marquee-dot&quot;></span>">30+ Years of Excellence <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ═══ FEATURED SUITE ═══ -->
+<section class="feature-suite">
+  <div class="feature-suite-media">
+    <img src="images/play-08.jpg" alt="Simpor Suite"/>
+  </div>
+  <div class="feature-suite-body">
+    <div class="feature-suite-tag fade-up" data-sr="Naš smeštaj">Our Accommodation</div>
+    <h2 class="fade-up" data-sr-html="Udobnost,<br/>tišina i<br/><em>prava briga</em>">Comfort,<br/>Quiet, and<br/><em>Real Care</em></h2>
+    <p class="fade-up" data-sr="Udoban, klimatizovan smeštaj sa pristupom dvorištu i mirnom rutinom — uz brigu ljudi koji svakodnevno rade sa psima.">A comfortable, climate-controlled suite with outdoor access and a calm routine — looked after by people who work with dogs every day.</p>
+
+    <div class="feature-suite-meta fade-up">
+      <div class="feature-suite-meta-item">
+        <div class="v" data-sr="Individualna">Individual</div>
+        <div class="l" data-sr="Briga">Care</div>
+      </div>
+      <div class="feature-suite-meta-item">
+        <div class="v" data-sr="Svakodnevni">Daily</div>
+        <div class="l" data-sr="Izveštaji">Updates</div>
+      </div>
+      <div class="feature-suite-meta-item">
+        <div class="v" data-sr="Na upit">On request</div>
+        <div class="l" data-sr="Cena">Pricing</div>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:14px; flex-wrap:wrap;" class="fade-up">
+      <a href="rooms.html" class="btn-gold" data-sr="Pogledaj smeštaj">View Suite</a>
+      <a href="booking.html" class="btn-outline" data-sr="Proveri dostupnost">Check Availability</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FACILITY ═══ -->
+<section id="facility">
+  <div class="facility-wrap">
+    <div>
+      <p class="eyebrow fade-up" data-sr="Naš centar">Our Facility</p>
+      <h2 class="section-h fade-up" data-sr-html="Stvoren za <em>vrhunsku negu</em>">Designed for <em>Excellence</em></h2>
+      <div class="facility-body fade-up">
+        <p data-sr="Simpor Dog Centar je posebno osmišljen kompleks posvećen uzgoju, smeštaju i profesionalnoj obuci pasa. Prostire se na više od dva hektara uređenog prostora, u prirodi Šumadije, i pruža uslove za bezbedan, funkcionalan i efikasan rad sa psima po savremenim međunarodnim standardima.">Simpor Dog Center is a specially designed complex dedicated to the breeding, accommodation, and professional training of dogs. Spread across more than two hectares of organized space, in the natural surroundings of Šumadija, the center provides conditions for safe, functional, and efficient work with dogs according to modern international standards.</p>
+        <p data-sr="Otvoreni i zatvoreni tereni omogućavaju rad u svim vremenskim uslovima — od poslušnosti i sportskih disciplina do zaštitnog i K9 treninga.">Both outdoor and indoor training areas support work in all weather conditions — from obedience and sport disciplines to protection and K9 training.</p>
+        <p data-sr="U srcu Šumadije, okruženi netaknutom prirodom, napravili smo prostor koji spaja iskustvo stečeno širom sveta, prirodno okruženje i funkcionalnu infrastrukturu — sa jednim ciljem: da svakom psu pružimo najbolje moguće uslove za razvoj, rad i napredak.">In the heart of Šumadija surrounded by untouched nature, a space was created that combines experience gained around the world, a natural environment, and functional infrastructure — with one goal: to provide every dog with the best possible conditions for development, work, and progress.</p>
+      </div>
+      <div class="facility-stats fade-up">
+        <div class="fa-item"><div class="fa-val">2+</div><div class="fa-lbl" data-sr="Hektara prostora">Hectares of Grounds</div></div>
+        <div class="fa-item"><div class="fa-val" data-sr="Svi">All</div><div class="fa-lbl" data-sr="Vremenski uslovi za trening">Weather Training Areas</div></div>
+        <div class="fa-item"><div class="fa-val">30+</div><div class="fa-lbl" data-sr="Godina iskustva">Years of Excellence</div></div>
+        <div class="fa-item"><div class="fa-val">24/7</div><div class="fa-lbl" data-sr="Profesionalna nega">Professional Care</div></div>
+      </div>
+    </div>
+    <div class="fade-right">
+      <div class="facility-grid">
+        <div class="facility-grid-item full clip-reveal">
+          <img src="images/res.jpg" alt="Simpor Facility"/>
+        </div>
+        <div class="facility-grid-item clip-reveal">
+          <img src="images/res1.jpg" alt="Training Ground"/>
+        </div>
+        <div class="facility-grid-item clip-reveal">
+          <img src="images/res4.jpg" alt="Simpor Center"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ A DAY AT SIMPOR ═══ -->
+<section class="section alt">
+  <div class="section-wrap">
+    <div style="max-width:820px;">
+      <p class="eyebrow fade-up" data-sr="Dan u Simporu">A Day at Simpor</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Rutina osmišljena<br/>za <em>prave pse</em>">Routine Built<br/>Around <em>Real Dogs</em></h2>
+      <p class="section-lead fade-up" data-sr="Nijedan gost nema isti raspored — ali svaki dan prati istu strukturu. Predvidivu, mirnu i aktivnu.">No two guests run the same schedule — but every day shares the same structure. Predictable, calm, and active.</p>
+    </div>
+
+    <div class="day-flow fade-up">
+      <div class="day-flow-item">
+        <div class="df-time">06:30</div>
+        <div class="df-dot"></div>
+        <div class="df-name" data-sr-html="Jutarnja <em>šetnja</em>">Morning <em>Walk</em></div>
+        <div class="df-desc" data-sr="Duga šetnja van imanja sa vodičem. Pauza za nuždu, opuštena aktivnost, sopstveni tempo.">Long off-property walk with handler. Bathroom break, low-intensity movement, individual pace.</div>
+      </div>
+      <div class="day-flow-item">
+        <div class="df-time">09:00</div>
+        <div class="df-dot"></div>
+        <div class="df-name" data-sr-html="Doručak <em>+ odmor</em>">Breakfast <em>+ Rest</em></div>
+        <div class="df-desc" data-sr="Hranjenje po rasporedu vašeg psa, posle čega sledi mir i opuštanje u njegovom smeštaju.">Feeding on your dog's exact schedule, followed by quiet decompression in their suite.</div>
+      </div>
+      <div class="day-flow-item">
+        <div class="df-time">14:00</div>
+        <div class="df-dot"></div>
+        <div class="df-name" data-sr-html="Trening <em>ili igra</em>">Training <em>or Play</em></div>
+        <div class="df-desc" data-sr="Sesija održavanja treninga, strukturisana mentalna aktivnost ili druženje sa odabranim psima.">Either a maintenance training session, structured enrichment, or matched social play.</div>
+      </div>
+      <div class="day-flow-item">
+        <div class="df-time">19:00</div>
+        <div class="df-dot"></div>
+        <div class="df-name" data-sr-html="Večernja <em>šetnja</em>">Evening <em>Walk</em></div>
+        <div class="df-desc" data-sr="Poslednja šetnja, večera i smirivanje. Noćni vodič preuzima dalji nadzor.">Final walk, dinner, settling routine. Night-shift handler takes over for supervision.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INTRO ═══ -->
+<section class="resort-intro">
+  <div class="resort-intro-wrap">
+    <div class="resort-intro-text">
+      <p class="eyebrow fade-up" data-sr="Šta je Simpor Dog Resort">What is Simpor Dog Resort</p>
+      <h2 class="resort-intro-title fade-up" data-sr-html="Više od smeštaja —<br/><em>odmor za vašeg psa</em>">More Than<br/>Boarding — It's <em>Their Vacation</em></h2>
+      <div class="resort-intro-body fade-up">
+        <p data-sr="Simpor Dog Resort je ekskluzivni deo Simpor Dog Centra, namenjen vlasnicima koji žele da njihovi psi uživaju u najvišem nivou nege, udobnosti i sigurnosti dok ih nema. Bilo da putujete, ste na odmoru ili vam je potrebna svakodnevna briga o psu, Simpor Dog Resort nudi jedinstveno okruženje u kojem svaki pas dobija profesionalnu pažnju, individualnu negu i osećaj da je kao kod kuće.">Simpor Dog Resort is an exclusive part of Simpor Dog Center, created for owners who want their dogs to enjoy the highest level of care, comfort, and safety while they are away. Whether you are traveling, on vacation, or simply need daily care for your dog, Simpor Dog Resort offers a unique environment where every dog receives professional attention, individual care, and the feeling of being at home.</p>
+        <p data-sr="Smešten u srcu prirode, na više od dva hektara uređenog i bezbednog prostora, Simpor Dog Resort kombinuje premium smeštaj, profesionalni nadzor i svakodnevne aktivnosti — sve da bi svaki pas bio srećan, opušten i aktivan.">Located in the heart of nature, within more than two hectares of organized and secure space, Simpor Dog Resort combines premium accommodation, professional supervision, and daily activities designed to keep every dog happy, relaxed, and active.</p>
+        <p data-sr-html="Naš cilj je jednostavan — <em>dok vi uživate na svom odmoru, vaš pas uživa na svom.</em>">Our goal is simple — <em>while you enjoy your vacation, your dog will enjoy theirs.</em></p>
+      </div>
+    </div>
+    <div class="resort-intro-visual fade-up">
+      <img class="resort-main-img" src="images/spa.jpeg" alt="Simpor Dog Resort"/>
+      <img class="resort-accent-img" src="images/res4.jpg" alt="Dog Care"/>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACHIEVEMENTS STRIP ═══ -->
+<div class="achievements-strip">
+  <div class="ach-wrap">
+    <div class="ach-item">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong data-sr="Nadzor 24/7">24/7 Supervision</strong>
+        <span data-sr="Iskusni stručnjaci uvek prisutni">Expert handlers always present</span>
+      </div>
+    </div>
+    <div class="ach-item">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong data-sr="Sigurno i bezbedno">Secure &amp; Safe</strong>
+        <span data-sr="Profesionalni standardi objekta">Professional facility standards</span>
+      </div>
+    </div>
+    <div class="ach-item">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong data-sr="Prilagođeni programi">Tailored Programs</strong>
+        <span data-sr="Individualan plan nege za svakog psa">Individual care plans for every dog</span>
+      </div>
+    </div>
+    <div class="ach-item">
+      <div class="ach-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="ach-text">
+        <strong data-sr="Stručan tim">Expert Team</strong>
+        <span data-sr="30+ godina kinološkog iskustva">30+ years of cynological expertise</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="resort-features" id="resort-features">
+  <div class="resort-features-wrap">
+    <div class="resort-features-head">
+      <p class="eyebrow fade-up" data-sr="Šta nudimo">What We Offer</p>
+      <h2 class="section-h fade-up" data-sr-html="Stvoreno za<br/><em>najbolje</em> pse">Built for the<br/><em>Best</em> Dogs</h2>
+    </div>
+    <div class="resort-features-grid">
+      <div class="resort-feature">
+        <div class="rf-num">01</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="rf-title" data-sr="Smeštaj">Boarding</div>
+        <p class="rf-desc" data-sr="Prostran, čist i klimatizovan smeštaj osmišljen za udobnost i dobrobit pasa svih veličina i temperamenata.">Spacious, clean, and climate-controlled accommodations designed for the comfort and well-being of dogs of all sizes and temperaments.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">02</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="rf-title" data-sr="Održavanje treninga">Training Maintenance</div>
+        <p class="rf-desc" data-sr="Trening vašeg psa ostaje na nivou tokom boravka. Naši sertifikovani vodiči nastavljaju da rade na veštinama i komandama, tako da se pas vraća kući bolji nego što je otišao.">Keep your dog's training sharp during their stay. Our certified handlers continue working on skills and commands, so your dog returns home better than they left.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">03</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div class="rf-title" data-sr="Socijalizacija">Socialization</div>
+        <p class="rf-desc" data-sr="Druženje sa drugim psima pod nadzorom, prilagođeno karakteru i temperamentu svakog psa. Neophodno za radne pse u periodima odmora.">Supervised social interaction with other dogs, designed for each dog's personality and temperament. Essential enrichment for working dogs during their rest periods.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">04</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </div>
+        <div class="rf-title" data-sr="Igra i uživanje">Play &amp; Enjoyment</div>
+        <p class="rf-desc" data-sr="Strukturisana igra, druženje i aktivnosti na svežem vazduhu — vaš pas se vraća srećan, opušten i ispunjen.">Structured play, social time, and outdoor activities — your dog returns home happy, relaxed, and fulfilled.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">05</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div class="rf-title" data-sr="Veterinarska saradnja">Veterinary Coordination</div>
+        <p class="rf-desc" data-sr="Bliska saradnja sa proverenim veterinarima. Praćenje zdravlja tokom celog boravka, sa jasnim protokolom u slučaju potrebe i redovnim obaveštavanjem vlasnika.">Close cooperation with trusted veterinary professionals. Health monitoring throughout every stay, with immediate action protocols and owner reporting.</p>
+      </div>
+      <div class="resort-feature">
+        <div class="rf-num">06</div>
+        <div class="rf-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div class="rf-title" data-sr="Plan ishrane">Nutrition Plans</div>
+        <p class="rf-desc" data-sr="Prilagođen plan ishrane sa kvalitetnom hranom, prema rasi, godinama, nivou aktivnosti i zdravstvenim potrebama vašeg psa. Pratimo njegov uobičajeni jelovnik.">Custom feeding schedules using premium nutrition tailored to each dog's breed, age, working level, and health requirements. We follow your dog's existing diet exactly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACCOMMODATION PREVIEW ═══ -->
+<section class="section alt">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Smeštaj">Accommodation</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Jedan standard, <em>za svakog gosta</em>">One Standard, <em>For Every Guest</em></h2>
+      <p class="section-lead fade-up" data-sr="Udoban, klimatizovan smeštaj sa individualnim nadzorom — napravljen za aktivne pse. Svaki gost dobija isti nivo nege.">Comfortable, climate-controlled suites, individually monitored and built for active dogs. Every guest gets the same level of care.</p>
+    </div>
+
+    <div class="rooms-grid fade-up" style="grid-template-columns:1fr; max-width:760px; margin-left:auto; margin-right:auto;">
+      <div class="room-card">
+        <div class="room-card-img">
+          <img src="images/res5.jpg" alt="Simpor Suite"/>
+          <div class="room-card-tag" data-sr="Smeštaj">Suite</div>
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-title" data-sr="Simpor Smeštaj">Simpor Suite</div>
+          <div class="room-card-price" data-sr-html="Na upit<span> / cena</span>">On request<span> / pricing</span></div>
+          <p class="room-card-desc" data-sr="Udoban, klimatizovan prostor sa pristupom dvorištu, individualnim hranjenjem i stalnim prisustvom osoblja — uz brigu ljudi koji svakodnevno rade sa psima.">A comfortable, climate-controlled space with outdoor access, individual feeding, and 24/7 staff presence — looked after by people who work with dogs every day.</p>
+          <ul class="room-card-features">
+            <li data-sr="Klimatizovan zatvoreni prostor">Climate-controlled indoor space</li>
+            <li data-sr="Pristup dvorištu i svakodnevne šetnje">Outdoor access and daily walks</li>
+            <li data-sr="Individualni raspored hranjenja">Individual feeding schedule</li>
+            <li data-sr="Prisustvo osoblja 24/7">24/7 staff presence</li>
+          </ul>
+          <a href="rooms.html" class="room-card-cta" data-sr="Pogledaj detalje">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:50px; text-align:center;" class="fade-up">
+      <a href="booking.html" class="btn-gold" style="display:inline-block;" data-sr="Rezerviši boravak">Reserve a Stay</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDITORIAL QUOTE ═══ -->
+<section class="editorial-quote">
+  <div class="editorial-quote-inner">
+    <p class="fade-up" data-sr-html="Vaš pas zaslužuje isti <em>profesionalni standard</em> koji stvara svetske šampione — čak i kada se odmara.">Your dog deserves the same <em>professional standard</em> that breeds world champions — even on their days off.</p>
+    <div class="editorial-quote-author fade-up" data-sr="Simpor Dog Resort · Osnovan 1994">Simpor Dog Resort · Est. 1994</div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="resort-gallery" id="resort-gallery">
+  <div class="resort-gallery-wrap">
+    <div>
+      <p class="eyebrow fade-up" data-sr="Resort">The Resort</p>
+      <h2 class="section-h fade-up" data-sr-html="Život u <em>Simpor Resortu</em>">Life at <em>Simpor Resort</em></h2>
+    </div>
+    <div class="resort-gallery-grid">
+      <div class="rg-item" data-rg="0">
+        <img src="images/play-01.jpg" alt="Simpor K9 — dog enjoying time at the resort"/>
+      </div>
+      <div class="rg-item" data-rg="1">
+        <img src="images/play-02.jpg" alt="Simpor K9 — play and socialization"/>
+      </div>
+      <div class="rg-item" data-rg="2">
+        <img src="images/play-03.jpg" alt="Simpor K9 — dog at the resort"/>
+      </div>
+      <div class="rg-item" data-rg="3">
+        <img src="images/play-05.jpg" alt="Simpor K9 — sport dog moments"/>
+      </div>
+      <div class="rg-item" data-rg="4">
+        <img src="images/play-07.jpg" alt="Simpor K9 — dog enjoying outdoor time"/>
+      </div>
+    </div>
+    <div style="margin-top:46px; text-align:center;" class="fade-up">
+      <a href="gallery.html" class="btn-outline" style="display:inline-block;" data-sr="Pogledaj celu galeriju →">See Full Gallery →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MEDIA SPLIT — TRAINING / PLAY ═══ -->
+<section class="media-split flip">
+  <div class="media-split-text">
+    <p class="eyebrow fade-up" data-sr="Obuka i igra">Training &amp; Play</p>
+    <h2 class="fade-up" data-sr-html="Spremniji nego<br/>kad su <em>stigli</em>">Sharper than<br/>when they <em>arrived</em></h2>
+    <p class="fade-up" data-sr="Svakodnevni časovi poslušnosti, fokusa i komandi sa sertifikovanim vodičima, a između — strukturisana igra, slobodno trčanje i druženje koje pas voli.">Daily obedience, focus, and command sessions delivered by certified handlers — balanced with structured play, free runs, and the social time every dog craves.</p>
+    <p class="fade-up" data-sr="Sarađujemo sa vašim trenerom i sa vama. Rad i igra se smenjuju tokom dana, tako da pas ostaje fokusiran i srećan.">We coordinate with your trainer and with you. Work and play alternate through the day, so your dog stays focused and happy.</p>
+    <div style="margin-top:32px;" class="fade-up">
+      <a href="services.html" class="cta-pill" data-sr-html="Pogledaj usluge <span class=&quot;ar&quot;>→</span>">Explore Services <span class="ar">→</span></a>
+    </div>
+  </div>
+  <div class="media-split-img clip-reveal">
+    <img src="images/play-06.jpg" alt="Training and play session"/>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Vlasnici govore">Owners Speak</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Poverenje <em>šampiona</em><br/>i porodica">Trusted by <em>Champions</em><br/>and Families Alike</h2>
+    </div>
+
+    <div class="testimonial-grid editorial fade-up">
+      <div class="testimonial featured">
+        <p class="testimonial-text" data-sr="Znajući da je Argo u Simporovoj brizi, mogli smo zaista da uživamo na odmoru. Vratio se u dobroj kondiciji, miran i očigledno bolji u izvršavanju komandi. Ne ostavljamo ga nigde drugde.">Knowing that Argo was in Simpor's care let us actually enjoy our vacation. He came back conditioned, calm, and noticeably sharper on commands. We don't board anywhere else.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">Marko Petrović</div>
+            <div class="testimonial-meta" data-sr="Vlasnik · Malinoa „Argo“">Owner · Malinois “Argo”</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text" data-sr="Veoma malo mesta poveravamo šampionskog psa. Simpor je jedno od njih — pažljivi, bez prečica.">We trust very few places with a championship dog. Simpor is one of them — meticulous, no shortcuts.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Ana Jovanović</div>
+            <div class="testimonial-meta" data-sr="Odgajivačica NO &amp; vodič">GSD breeder &amp; handler</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text" data-sr="Svakodnevne fotografije, profesionalni vodiči, prelepo imanje. Luna se vratila kući srećna, u kondiciji i lepo vaspitana.">Daily photos, professional handlers, beautiful grounds. Luna came home happy, fit, and well-mannered.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Stefan &amp; Mila Đorđević</div>
+            <div class="testimonial-meta" data-sr="Porodica · Labrador „Luna“">Family · Labrador “Luna”</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHOTO STRIP ═══ -->
+<section id="photo-gallery">
+  <div class="pg-head">
+    <div>
+      <p class="eyebrow fade-up" data-sr="Galerija">Photo Gallery</p>
+      <h2 class="section-h fade-up" style="font-size:clamp(32px,4vw,52px);" data-sr-html="Trenuci <em>veličine</em>">Moments of <em>Greatness</em></h2>
+    </div>
+    <div class="pg-nav-btns">
+      <button class="pg-btn" onclick="pgScroll(-1)" aria-label="Previous">&#8592;</button>
+      <div class="pg-counter"><span class="pg-counter-cur" id="pgCurrent">01</span> / <span id="pgTotal">0</span></div>
+      <button class="pg-btn" onclick="pgScroll(1)" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+  <div id="pgStripWrap">
+    <div id="pgStrip">
+      <div class="pg-thumb" data-src="images/play-01.jpg" data-idx="0"><img src="images/play-01.jpg" alt="Simpor K9 — dog enjoying time at the resort"/></div>
+      <div class="pg-thumb" data-src="images/play-02.jpg" data-idx="1"><img src="images/play-02.jpg" alt="Simpor K9 — play moment"/></div>
+      <div class="pg-thumb" data-src="images/play-03.jpg" data-idx="2"><img src="images/play-03.jpg" alt="Simpor K9 — dog at the resort"/></div>
+      <div class="pg-thumb" data-src="images/play-04.jpg" data-idx="3"><img src="images/play-04.jpg" alt="Simpor K9 — dog at the resort"/></div>
+      <div class="pg-thumb" data-src="images/play-05.jpg" data-idx="4"><img src="images/play-05.jpg" alt="Simpor K9 — sport dog"/></div>
+      <div class="pg-thumb" data-src="images/play-06.jpg" data-idx="5"><img src="images/play-06.jpg" alt="Simpor K9 — outdoor play"/></div>
+      <div class="pg-thumb" data-src="images/play-07.jpg" data-idx="6"><img src="images/play-07.jpg" alt="Simpor K9 — dog enjoying outdoor time"/></div>
+      <div class="pg-thumb" data-src="images/play-08.jpg" data-idx="7"><img src="images/play-08.jpg" alt="Simpor K9 — care and play"/></div>
+      <div class="pg-thumb" data-type="video" data-src="images/play-clip.mp4" data-idx="8">
+        <video src="images/play-clip.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="pg-thumb" data-type="video" data-src="images/hero-video.mp4" data-idx="9">
+        <video src="images/hero-video.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="pg-thumb" data-src="images/res.jpg" data-idx="10"><img src="images/res.jpg" alt="Training Session"/></div>
+      <div class="pg-thumb" data-src="images/res1.jpg" data-idx="11"><img src="images/res1.jpg" alt="German Shepherd Excellence"/></div>
+      <div class="pg-thumb" data-src="images/res2.jpg" data-idx="12"><img src="images/res2.jpg" alt="Sport Competition"/></div>
+      <div class="pg-thumb" data-src="images/res3.jpg" data-idx="13"><img src="images/res3.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/res4.jpg" data-idx="14"><img src="images/res4.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/res5.jpg" data-idx="15"><img src="images/res5.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/res6.jpg" data-idx="16"><img src="images/res6.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/res7.jpg" data-idx="17"><img src="images/res7.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/res8.jpg" data-idx="18"><img src="images/res8.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/97.jpg" data-idx="19"><img src="images/97.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/56.jpg" data-idx="20"><img src="images/56.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/77777.jpg" data-idx="21"><img src="images/77777.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/9999.jpg" data-idx="22"><img src="images/9999.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/8888.jpg" data-idx="23"><img src="images/8888.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/9.PNG" data-idx="24"><img src="images/9.PNG" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/10.PNG" data-idx="25"><img src="images/10.PNG" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/55.jpg" data-idx="26"><img src="images/55.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/54.jpg" data-idx="27"><img src="images/54.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/23.jpg" data-idx="28"><img src="images/23.jpg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/00.jpeg" data-idx="29"><img src="images/resort/00.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-type="video" data-src="images/resort/WhatsApp Video 2026-04-12 at 10.21.174.mp4" data-idx="30">
+        <video src="images/resort/WhatsApp%20Video%202026-04-12%20at%2010.21.174.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="pg-thumb" data-src="images/resort/12.jpeg" data-idx="31"><img src="images/resort/12.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/43.jpeg" data-idx="32"><img src="images/resort/43.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/65.jpeg" data-idx="33"><img src="images/resort/65.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/76.jpeg" data-idx="34"><img src="images/resort/76.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/231.jpeg" data-idx="35"><img src="images/resort/231.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/323.jpeg" data-idx="36"><img src="images/resort/323.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/445.jpeg" data-idx="37"><img src="images/resort/445.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/769.jpeg" data-idx="38"><img src="images/resort/769.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/3443.jpeg" data-idx="39"><img src="images/resort/3443.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/6776.jpeg" data-idx="40"><img src="images/resort/6776.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/66565.jpeg" data-idx="41"><img src="images/resort/66565.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/WhatsApp Image 2026-04-12 at 10.44.09.jpeg" data-idx="42"><img src="images/resort/WhatsApp Image 2026-04-12 at 10.44.09.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/09.jpeg" data-idx="43"><img src="images/resort/09.jpeg" alt="Simpor Dog Resort"/></div>
+      <div class="pg-thumb" data-src="images/resort/WhatsApp Image 2026-04-12 at 10.44.092.jpeg" data-idx="44"><img src="images/resort/WhatsApp Image 2026-04-12 at 10.44.092.jpeg" alt="Simpor Dog Resort"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOOKING STRIP CTA ═══ -->
+<section class="booking-strip">
+  <div class="booking-strip-inner">
+    <p class="eyebrow fade-up" style="color:var(--gold); margin-bottom:18px;" data-sr="Rezerviši smeštaj">Reserve a Suite</p>
+    <h2 class="fade-up" data-sr-html="Vaš odmor,<br/><em>i njihov</em>">Your Vacation,<br/><em>and Theirs</em></h2>
+    <p class="fade-up" data-sr="Onlajn rezervacija za dva minuta. Potvrda istog dana. Uvek isti standardi.">Two-minute online reservation. Same-day confirmation. Same standards every time.</p>
+    <div class="booking-strip-ctas fade-up">
+      <a href="booking.html" class="btn-gold" data-sr="Rezerviši boravak">Book a Stay</a>
+      <a href="rooms.html" class="btn-outline" data-sr="Pogledaj smeštaj">View Accommodation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPLORE / SITE LINKS ═══ -->
+<section class="section">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Istraži">Explore</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Otkrij <em>Resort</em>">Discover the <em>Resort</em></h2>
+      <p class="section-lead fade-up" data-sr="Bliže upoznajte sve što Simpor nudi — od smeštaja do tima koji stoji iza svakog zadovoljnog psa.">Take a closer look at everything Simpor offers, from the accommodation to the team behind every wagging tail.</p>
+    </div>
+    <div class="page-link-grid fade-up">
+      <a href="about.html" class="page-link">
+        <div class="pl-num">01</div>
+        <div class="pl-title" data-sr="O Simporu">About Simpor</div>
+        <div class="pl-desc" data-sr="Naša priča, filozofija i 30+ godina u kinologiji.">Our story, philosophy, and 30+ years in cynology.</div>
+      </a>
+      <a href="services.html" class="page-link">
+        <div class="pl-num">02</div>
+        <div class="pl-title" data-sr="Usluge">Services</div>
+        <div class="pl-desc" data-sr="Smeštaj, obuka, igra, nega i još mnogo toga.">Boarding, training, play, grooming &amp; more.</div>
+      </a>
+      <a href="rooms.html" class="page-link">
+        <div class="pl-num">03</div>
+        <div class="pl-title" data-sr="Smeštaj">Accommodation</div>
+        <div class="pl-desc" data-sr="Udoban smeštaj sa nadzorom 24h dnevno.">Comfortable suites looked after around the clock.</div>
+      </a>
+      <a href="gallery.html" class="page-link">
+        <div class="pl-num">04</div>
+        <div class="pl-title" data-sr="Galerija">Gallery</div>
+        <div class="pl-desc" data-sr="Imanje, psi i naš rad — kroz fotografije.">The grounds, the dogs, the work — in pictures.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="resort-contact">
+  <div class="contact-wrap">
+    <p class="eyebrow fade-up" data-sr="Kontaktirajte nas">Get In Touch</p>
+    <h2 class="section-h fade-up" data-sr-html="Razgovarajte sa <em>Simporom</em>">Talk to <em>Simpor</em></h2>
+    <p class="contact-desc fade-up" data-sr="Pitanja o dostupnosti, prevozu ili posebnim potrebama vašeg psa? Javite nam se direktno — telefon, WhatsApp ili mejl.">Questions about availability, transport, or your dog's specific needs? Reach us directly — phone, WhatsApp, or email.</p>
+    <div class="c-details fade-up">
+      <div class="c-item">
+        <div class="c-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.17 6.17l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="c-item-body">
+          <strong data-sr="Telefon / WhatsApp">Phone / WhatsApp</strong>
+          <span><a href="tel:+38164491903">+381 64 4919030</a></span>
+        </div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="c-item-body">
+          <strong data-sr="Mejl">Email</strong>
+          <span><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></span>
+        </div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="c-item-body">
+          <strong data-sr="Lokacija">Location</strong>
+          <span data-sr="Srbija — region Šumadije, tačnu lokaciju dajemo na zahtev">Serbia — Šumadija region, details provided on inquiry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc" data-sr="Premium Dog resort i profesionalni centar za uzgoj, obuku i razvoj radnih i sportskih pasa. Više od 30 godina međunarodnog iskustva.">Premium dog resort, professional center for the breeding, training, and development of working and sport dogs. Built on 30+ years of international excellence.</p>
+      <div class="f-socials">
+        <a href="https://www.instagram.com/simpor_dog_resort/" target="_blank" class="f-soc" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/simpor_dogcentar/" target="_blank" class="f-soc" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/simpork9/" target="_blank" class="f-soc" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@simpordogcenter" target="_blank" class="f-soc" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96C1 8.13 1 12 1 12s0 3.87.46 5.58a2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.97C23 15.87 23 12 23 12s0-3.87-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Navigacija">Navigation</div>
+      <ul class="f-links">
+        <li><a href="index.html" data-sr="Početna">Home</a></li>
+        <li><a href="about.html" data-sr="O nama">About</a></li>
+        <li><a href="services.html" data-sr="Usluge">Services</a></li>
+        <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+        <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+        <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Usluge">Services</div>
+      <ul class="f-links">
+        <li><a href="services.html#boarding" data-sr="Smeštaj">Boarding</a></li>
+        <li><a href="services.html#training" data-sr="Održavanje treninga">Training Maintenance</a></li>
+        <li><a href="services.html#socialization" data-sr="Socijalizacija">Socialization</a></li>
+        <li><a href="services.html#play" data-sr="Igra i uživanje">Play &amp; Enjoyment</a></li>
+        <li><a href="services.html#nutrition" data-sr="Plan ishrane">Nutrition Plans</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Kontakt">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="tel:+38164491903">+381 64 4919030</a></li>
+        <li><a href="contact.html" data-sr="Srbija · Šumadija">Serbia · Šumadija</a></li>
+        <li><a href="contact.html">FCI 3428</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="f-bottom-left" data-sr="© 2026 Simpor Dog Resort. Sva prava zadržana.">© 2026 Simpor Dog Resort. All rights reserved.</div>
+    <div class="f-fci-badge" data-sr-html="FCI <span>3428</span> · Osnovan <span>1994</span>">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+<!-- ═══ LIGHTBOX (resort gallery) ═══ -->
+<div class="lightbox" id="rgLightbox">
+  <div class="lb-wrap">
+    <img id="rgLbImg" class="lb-media" src="" alt=""/>
+    <button class="lb-close" id="rgLbClose" aria-label="Close">×</button>
+    <button class="lb-nav prev" id="rgLbPrev" aria-label="Previous">&#8592;</button>
+    <button class="lb-nav next" id="rgLbNext" aria-label="Next">&#8594;</button>
+    <div class="lb-info" id="rgLbInfo"></div>
+  </div>
+</div>
+
+<!-- ═══ LIGHTBOX (photo strip) ═══ -->
+<div class="lightbox" id="pgLightbox">
+  <div class="lb-wrap">
+    <img id="pgLbImg" class="lb-media" src="" alt=""/>
+    <video id="pgLbVid" class="lb-media" controls style="display:none;"></video>
+    <button class="lb-close" id="pgLbClose" aria-label="Close">×</button>
+    <button class="lb-nav prev" id="pgLbPrev" aria-label="Previous">&#8592;</button>
+    <button class="lb-nav next" id="pgLbNext" aria-label="Next">&#8594;</button>
+    <div class="lb-info" id="pgLbInfo"></div>
+  </div>
+</div>
+
+<script>
+  // Hero availability widget: default dates + animate in
+  (function() {
+    const ci = document.getElementById('heroCi');
+    const co = document.getElementById('heroCo');
+    if (!ci || !co) return;
+    const t = new Date();
+    const tomorrow = new Date(t); tomorrow.setDate(t.getDate() + 1);
+    const inFour = new Date(t); inFour.setDate(t.getDate() + 4);
+    const iso = d => d.toISOString().slice(0,10);
+    ci.value = iso(tomorrow);
+    co.value = iso(inFour);
+    ci.min = iso(t);
+    co.min = iso(tomorrow);
+    ci.addEventListener('change', () => {
+      const c = new Date(ci.value); c.setDate(c.getDate() + 1);
+      co.min = iso(c);
+      if (new Date(co.value) <= new Date(ci.value)) co.value = iso(c);
+    });
+
+    // fade-in widget after hero text animates
+    if (window.gsap) {
+      gsap.to('#heroCheck', {
+        opacity: 1, y: 0, duration: 0.85, ease: 'power2.out',
+        delay: 1.6
+      });
+    } else {
+      document.getElementById('heroCheck').style.opacity = 1;
+      document.getElementById('heroCheck').style.transform = 'none';
+    }
+  })();
+</script>
+
+</body>
+</html>

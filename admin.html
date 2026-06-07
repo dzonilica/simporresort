@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Admin — Simpor Resort Reservations</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  body { background: var(--black); }
+  /* Admin-only nav: minimal, no public links */
+  #adminNav {
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    padding:16px 32px; display:flex; align-items:center; justify-content:space-between;
+    background:rgba(5,5,5,0.95); backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+  }
+  #adminNav .nav-logo {
+    font-family:var(--font-d); font-size:16px; letter-spacing:4px;
+    color:var(--off-white); display:flex; align-items:center; gap:10px;
+    text-transform:uppercase;
+  }
+  #adminNav .nav-logo img { height:30px; }
+  #adminNav .nav-logo em { color:var(--gold); font-style:normal; }
+  #adminNav .admin-tag {
+    font-size:9px; color:var(--gold); letter-spacing:3px; padding:4px 10px;
+    border:1px solid var(--border); text-transform:uppercase;
+  }
+  #adminNav .admin-back {
+    color:var(--text-2); font-size:11px; letter-spacing:2.5px;
+    text-transform:uppercase; transition:color .3s;
+  }
+  #adminNav .admin-back:hover { color:var(--gold); }
+</style>
+</head>
+<body>
+
+<nav id="adminNav">
+  <a class="nav-logo" href="index.html">
+    <img src="images/logo.png" alt="Simpor"/>
+    <span>SIM<em>POR</em></span>
+    <span class="admin-tag">Admin</span>
+  </a>
+  <a href="index.html" class="admin-back">← View Site</a>
+</nav>
+
+<main class="admin-shell">
+  <div class="admin-head">
+    <div>
+      <h1>Reservation <em>Dashboard</em></h1>
+      <div class="admin-sub">Simpor Dog Resort · live bookings</div>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button class="row-act" id="exportBtn">Export CSV</button>
+      <button class="row-act" id="refreshBtn">Refresh</button>
+    </div>
+  </div>
+
+  <div class="admin-stats" id="adminStats">
+    <div class="admin-stat"><div class="admin-stat-num" id="statTotal">0</div><div class="admin-stat-lbl">Total</div></div>
+    <div class="admin-stat"><div class="admin-stat-num" id="statPending">0</div><div class="admin-stat-lbl">Pending</div></div>
+    <div class="admin-stat"><div class="admin-stat-num" id="statConfirmed">0</div><div class="admin-stat-lbl">Confirmed</div></div>
+    <div class="admin-stat"><div class="admin-stat-num" id="statUpcoming">0</div><div class="admin-stat-lbl">Upcoming</div></div>
+    <div class="admin-stat"><div class="admin-stat-num" id="statRevenue">€0</div><div class="admin-stat-lbl">Est. revenue</div></div>
+  </div>
+
+  <div class="admin-bar">
+    <div class="admin-tabs" id="filterTabs">
+      <button class="admin-tab active" data-f="all">All</button>
+      <button class="admin-tab" data-f="pending">Pending</button>
+      <button class="admin-tab" data-f="confirmed">Confirmed</button>
+      <button class="admin-tab" data-f="upcoming">Upcoming</button>
+      <button class="admin-tab" data-f="today">Today</button>
+      <button class="admin-tab" data-f="cancelled">Cancelled</button>
+      <button class="admin-tab" data-f="completed">Completed</button>
+    </div>
+    <div class="admin-search">
+      <input type="search" id="searchInput" placeholder="Search name, dog, email, phone…"/>
+    </div>
+  </div>
+
+  <div class="admin-table">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:90px;">Ref</th>
+          <th>Owner</th>
+          <th>Dog</th>
+          <th>Dates</th>
+          <th>Nights</th>
+          <th>Suite</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th style="width:240px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="reservationsTbody">
+        <tr><td colspan="9" class="admin-loading">Loading reservations…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<script type="module">
+  import {
+    supabase, RESERVATIONS_TABLE, PRICING,
+    nightsBetween, fmtMoney, fmtDate, shortRef
+  } from './supabase-client.js';
+
+  const tbody = document.getElementById('reservationsTbody');
+  const tabs = document.querySelectorAll('.admin-tab');
+  const search = document.getElementById('searchInput');
+
+  let all = [];
+  let filter = 'all';
+  let query = '';
+
+  function todayISO() { return new Date().toISOString().slice(0,10); }
+
+  async function load() {
+    tbody.innerHTML = '<tr><td colspan="9" class="admin-loading">Loading reservations…</td></tr>';
+    const { data, error } = await supabase
+      .from(RESERVATIONS_TABLE)
+      .select('*')
+      .order('check_in', { ascending: true });
+    if (error) {
+      tbody.innerHTML = '<tr><td colspan="9" class="admin-empty">Error: ' + error.message + '</td></tr>';
+      return;
+    }
+    all = data || [];
+    renderStats();
+    render();
+  }
+
+  function renderStats() {
+    const today = todayISO();
+    const total = all.length;
+    const pending = all.filter(r => r.status === 'pending').length;
+    const confirmed = all.filter(r => r.status === 'confirmed').length;
+    const upcoming = all.filter(r => r.check_in >= today && r.status !== 'cancelled').length;
+    const revenue = all
+      .filter(r => r.status === 'confirmed' || r.status === 'completed')
+      .reduce((s, r) => s + Number(r.total_estimate || 0), 0);
+
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statPending').textContent = pending;
+    document.getElementById('statConfirmed').textContent = confirmed;
+    document.getElementById('statUpcoming').textContent = upcoming;
+    document.getElementById('statRevenue').textContent = fmtMoney(revenue);
+  }
+
+  function matchesFilter(r) {
+    const today = todayISO();
+    switch (filter) {
+      case 'pending':   return r.status === 'pending';
+      case 'confirmed': return r.status === 'confirmed';
+      case 'cancelled': return r.status === 'cancelled';
+      case 'completed': return r.status === 'completed';
+      case 'upcoming':  return r.check_in >= today && r.status !== 'cancelled';
+      case 'today':     return r.check_in <= today && r.check_out >= today && r.status !== 'cancelled';
+      default:          return true;
+    }
+  }
+
+  function matchesQuery(r) {
+    if (!query) return true;
+    const hay = [
+      r.owner_name, r.owner_email, r.owner_phone,
+      r.dog_name, r.dog_breed, shortRef(r.id)
+    ].join(' ').toLowerCase();
+    return hay.includes(query);
+  }
+
+  function svcLabel(key) {
+    return (PRICING.services[key] || {}).label || key;
+  }
+
+  function render() {
+    const rows = all.filter(matchesFilter).filter(matchesQuery);
+    if (rows.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="9" class="admin-empty">No reservations match.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = rows.map(r => {
+      const nights = nightsBetween(r.check_in, r.check_out);
+      const room = (PRICING.rooms[r.room_type] || {}).label || r.room_type;
+      const services = Array.isArray(r.services) ? r.services : [];
+      return `
+        <tr class="admin-row-main" data-id="${r.id}">
+          <td style="font-family:var(--font-d); color:var(--gold); letter-spacing:1.5px;">${shortRef(r.id)}</td>
+          <td>
+            <div style="color:var(--off-white); font-weight:500;">${esc(r.owner_name)}</div>
+            <div style="color:var(--text-2); font-size:11.5px; margin-top:2px;">${esc(r.owner_phone || '')}</div>
+          </td>
+          <td>
+            <div style="color:var(--off-white);">${esc(r.dog_name)}</div>
+            <div style="color:var(--text-2); font-size:11.5px; margin-top:2px;">${esc(r.dog_breed || '—')}</div>
+          </td>
+          <td>
+            <div>${fmtDate(r.check_in)}</div>
+            <div style="color:var(--text-2); font-size:11.5px; margin-top:2px;">→ ${fmtDate(r.check_out)}</div>
+          </td>
+          <td>${nights}</td>
+          <td>${esc(room)}</td>
+          <td style="color:var(--gold); font-family:var(--font-d); font-size:16px;">${fmtMoney(r.total_estimate)}</td>
+          <td><span class="badge ${r.status}">${r.status}</span></td>
+          <td>
+            <div class="row-actions">
+              <button class="row-act confirm" data-act="confirm" data-id="${r.id}">Confirm</button>
+              <button class="row-act" data-act="complete" data-id="${r.id}">Complete</button>
+              <button class="row-act cancel" data-act="cancel" data-id="${r.id}">Cancel</button>
+              <button class="row-act delete" data-act="delete" data-id="${r.id}">Delete</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="admin-row-detail" data-detail-for="${r.id}" style="display:none;">
+          <td colspan="9">
+            <div class="detail-inner">
+              <div class="detail-block"><strong>Owner email</strong><span>${esc(r.owner_email)}</span></div>
+              <div class="detail-block"><strong>Owner phone</strong><span>${esc(r.owner_phone)}</span></div>
+              <div class="detail-block"><strong>Vet contact</strong><span>${esc(r.vet_contact || '—')}</span></div>
+              <div class="detail-block"><strong>Emergency contact</strong><span>${esc(r.emergency_contact || '—')}</span></div>
+              <div class="detail-block"><strong>Dog age / weight</strong><span>${esc(r.dog_age || '—')} · ${esc(r.dog_weight || '—')}</span></div>
+              <div class="detail-block"><strong>Gender / fixed</strong><span>${esc(r.dog_gender || '—')} · ${r.dog_neutered ? 'neutered' : 'intact'}</span></div>
+              <div class="detail-block"><strong>Temperament</strong><span>${esc(r.dog_temperament || '—')}</span></div>
+              <div class="detail-block"><strong>Vaccinated</strong><span>${r.dog_vaccinated ? 'Yes' : 'No'}</span></div>
+              <div class="detail-block"><strong>Food / diet</strong><span>${esc(r.food_brand || '—')}</span></div>
+              <div class="detail-block"><strong>Medication</strong><span>${esc(r.medication || '—')}</span></div>
+              <div class="detail-block"><strong>Services</strong><span>${services.length ? services.map(svcLabel).map(esc).join(', ') : 'None'}</span></div>
+              <div class="detail-block"><strong>Special notes</strong><span>${esc(r.special_notes || '—')}</span></div>
+              <div class="detail-block" style="grid-column:1 / -1;">
+                <strong>Admin notes</strong>
+                <textarea data-admin-notes="${r.id}" placeholder="Internal note about this reservation…"
+                  style="margin-top:6px; width:100%; min-height:60px; background:var(--card); border:1px solid var(--border-dim); color:var(--off-white); padding:10px; font-family:var(--font-b); font-size:13px;">${esc(r.admin_notes || '')}</textarea>
+                <button class="row-act" data-act="save-notes" data-id="${r.id}" style="margin-top:8px;">Save Note</button>
+              </div>
+              <div class="detail-block"><strong>Created</strong><span>${fmtDate(r.created_at)}</span></div>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function esc(s) {
+    if (s == null) return '';
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
+  // Tabs
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    filter = t.dataset.f;
+    render();
+  }));
+
+  // Search
+  search.addEventListener('input', () => {
+    query = search.value.trim().toLowerCase();
+    render();
+  });
+
+  // Row click → toggle details
+  tbody.addEventListener('click', async e => {
+    const actBtn = e.target.closest('[data-act]');
+    if (actBtn) {
+      e.stopPropagation();
+      const id = actBtn.dataset.id;
+      const act = actBtn.dataset.act;
+      if (act === 'delete') {
+        if (!confirm('Delete this reservation? This cannot be undone.')) return;
+        const { error } = await supabase.from(RESERVATIONS_TABLE).delete().eq('id', id);
+        if (error) return alert('Delete failed: ' + error.message);
+        await load();
+        return;
+      }
+      if (act === 'save-notes') {
+        const ta = document.querySelector(`textarea[data-admin-notes="${id}"]`);
+        const note = ta ? ta.value : '';
+        const { error } = await supabase.from(RESERVATIONS_TABLE).update({ admin_notes: note }).eq('id', id);
+        if (error) return alert('Save failed: ' + error.message);
+        actBtn.textContent = 'Saved ✓';
+        setTimeout(() => actBtn.textContent = 'Save Note', 1400);
+        return;
+      }
+      const statusMap = { confirm:'confirmed', complete:'completed', cancel:'cancelled' };
+      const newStatus = statusMap[act];
+      if (newStatus) {
+        const { error } = await supabase.from(RESERVATIONS_TABLE).update({ status: newStatus }).eq('id', id);
+        if (error) return alert('Update failed: ' + error.message);
+        await load();
+      }
+      return;
+    }
+
+    const row = e.target.closest('.admin-row-main');
+    if (!row) return;
+    const id = row.dataset.id;
+    const detail = document.querySelector(`tr[data-detail-for="${id}"]`);
+    if (!detail) return;
+    const open = detail.style.display !== 'none';
+    detail.style.display = open ? 'none' : 'table-row';
+    row.classList.toggle('expanded', !open);
+  });
+
+  // Export CSV
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    if (!all.length) return alert('Nothing to export.');
+    const cols = [
+      'created_at','status','owner_name','owner_email','owner_phone',
+      'dog_name','dog_breed','dog_age','dog_weight','dog_gender',
+      'dog_neutered','dog_vaccinated','dog_temperament',
+      'check_in','check_out','room_type','services',
+      'food_brand','medication','vet_contact','emergency_contact',
+      'special_notes','total_estimate','admin_notes'
+    ];
+    const esc = s => {
+      if (s == null) return '';
+      const str = Array.isArray(s) ? s.join('|') : String(s);
+      return '"' + str.replace(/"/g,'""') + '"';
+    };
+    const lines = [cols.join(',')];
+    all.forEach(r => lines.push(cols.map(c => esc(r[c])).join(',')));
+    const blob = new Blob([lines.join('\n')], { type:'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `simpor-reservations-${todayISO()}.csv`; a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('refreshBtn').addEventListener('click', load);
+
+  load();
+</script>
+
+</body>
+</html>

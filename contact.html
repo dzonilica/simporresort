@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title data-sr="Kontakt — Simpor K9 Dog Resort">Contact — Simpor K9 Dog Resort</title>
+<meta name="description" content="Contact Simpor K9 Dog Resort. Phone, WhatsApp, email, and direction details for the dog resort in Šumadija, Serbia."/>
+<link rel="icon" href="images/logo.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+<style>
+  .page-hero.contact { --ph-bg: url('images/res7.jpg'); }
+</style>
+</head>
+<body>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay-lang">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="index.html" onclick="closeMobile()" data-sr="Početna">Home</a>
+  <a href="about.html" onclick="closeMobile()" data-sr="O nama">About</a>
+  <a href="services.html" onclick="closeMobile()" data-sr="Usluge">Services</a>
+  <a href="rooms.html" onclick="closeMobile()" data-sr="Smeštaj">Suites</a>
+  <a href="gallery.html" onclick="closeMobile()" data-sr="Galerija">Gallery</a>
+  <a href="contact.html" onclick="closeMobile()" data-sr="Kontakt">Contact</a>
+  <a href="booking.html" onclick="closeMobile()" data-sr="Rezerviši boravak">Book a Stay</a>
+</div>
+
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="images/logo.png" alt="Simpor"/>
+    <span class="nav-logo-text">SIM<span>POR</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-sr="Početna">Home</a></li>
+    <li><a href="about.html" data-sr="O nama">About</a></li>
+    <li><a href="services.html" data-sr="Usluge">Services</a></li>
+    <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+    <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+    <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <a href="booking.html" class="nav-cta" data-sr="Rezerviši boravak">Book a Stay</a>
+  <div class="mobile-lang-toggle">
+    <a data-lang-set="en" onclick="toggleLanguage('en')">EN</a>
+    <span class="lang-sep">/</span>
+    <a data-lang-set="sr" onclick="toggleLanguage('sr')">SR</a>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero contact">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="index.html" data-sr="Početna">Home</a><span class="sep">›</span><span data-sr="Kontakt">Contact</span>
+    </div>
+    <p class="eyebrow" data-sr="Stupite u kontakt">Get in Touch</p>
+    <h1 data-sr-html="Pišite <em>Simporu</em>">Talk to <em>Simpor</em></h1>
+    <p class="page-hero-sub" data-sr="Za rezervacije, dostupnost, prevoz ili bilo šta vezano za boravak vašeg psa — pišite nam ili nas pozovite. Obično odgovaramo u roku od nekoliko sati.">For bookings, availability, transport, or anything related to your dog's stay — reach us by phone, WhatsApp, or email. We typically respond within a few hours.</p>
+  </div>
+</section>
+
+<!-- CONTACT INFO + FORM -->
+<section class="section">
+  <div class="section-wrap">
+    <div class="two-col">
+      <div class="fade-up">
+        <p class="eyebrow" data-sr="Direktni kontakti">Direct Lines</p>
+        <h2 class="section-h2" data-sr-html="Pišite nam <em>direktno</em>">Reach Us <em>Directly</em></h2>
+
+        <div class="c-details" style="margin-top:36px;">
+          <div class="c-item">
+            <div class="c-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.17 6.17l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="c-item-body">
+              <strong data-sr="Telefon / WhatsApp">Phone / WhatsApp</strong>
+              <span><a href="tel:+38164491903">+381 64 4919030</a></span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="c-item-body">
+              <strong data-sr="Mejl">Email</strong>
+              <span><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="c-item-body">
+              <strong data-sr="Lokacija">Location</strong>
+              <span data-sr-html="Srbija — region Šumadije<br/>Tačnu adresu šaljemo nakon potvrde rezervacije">Serbia — Šumadija region<br/>Exact address provided after booking confirmation</span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b88a3a" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="c-item-body">
+              <strong data-sr="Radno vreme">Hours</strong>
+              <span data-sr-html="Prijem i preuzimanje: 09:00 – 19:00, svakog dana<br/>Hitni slučajevi: 24/7 telefonom">Check-in &amp; pickup: 09:00 – 19:00 daily<br/>Emergencies: 24/7 by phone</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form fade-up" style="padding:38px 34px;">
+        <div class="booking-step-head">
+          <div class="booking-step-title" data-sr="Pošaljite poruku">Send a Message</div>
+          <div class="booking-step-count" data-sr="Brzi formular">Quick Form</div>
+        </div>
+        <form id="contactForm">
+          <div class="form-grid">
+            <div class="form-field">
+              <label data-sr-html="Ime <em>*</em>">Name <em>*</em></label>
+              <input type="text" name="name" required placeholder="Your name" data-sr-placeholder="Vaše ime"/>
+            </div>
+            <div class="form-field">
+              <label data-sr="Telefon">Phone</label>
+              <input type="tel" name="phone" placeholder="+381 …"/>
+            </div>
+            <div class="form-field col-2">
+              <label data-sr-html="Mejl <em>*</em>">Email <em>*</em></label>
+              <input type="email" name="email" required placeholder="you@example.com"/>
+            </div>
+            <div class="form-field col-2">
+              <label data-sr="Tema">Subject</label>
+              <select name="subject">
+                <option data-sr="Opšte pitanje">General inquiry</option>
+                <option data-sr="Pitanje o rezervaciji">Booking question</option>
+                <option data-sr="Duži boravak">Long-term boarding</option>
+                <option data-sr="Trening program">Training program</option>
+                <option data-sr="Igra i uživanje">Play &amp; enjoyment</option>
+                <option data-sr="Drugo">Other</option>
+              </select>
+            </div>
+            <div class="form-field col-2">
+              <label data-sr-html="Poruka <em>*</em>">Message <em>*</em></label>
+              <textarea name="message" required placeholder="Tell us about your dog and what you're looking for…" data-sr-placeholder="Recite nam o svom psu i šta vam je potrebno…"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="booking-submit" data-sr="Pošalji poruku">Send Message</button>
+          <p class="booking-note" data-sr="Odgovaramo u roku od nekoliko sati. Za hitne stvari pozovite direktno.">We will reply within a few hours. For urgent matters, please call directly.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <div class="f-brand-logo">SIM<em>POR</em></div>
+      <p class="f-desc" data-sr="Premium dog resort i profesionalni centar za uzgoj, obuku i razvoj radnih i sportskih pasa.">Premium dog resort, professional center for the breeding, training, and development of working and sport dogs.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Navigacija">Navigation</div>
+      <ul class="f-links">
+        <li><a href="index.html" data-sr="Početna">Home</a></li>
+        <li><a href="about.html" data-sr="O nama">About</a></li>
+        <li><a href="services.html" data-sr="Usluge">Services</a></li>
+        <li><a href="rooms.html" data-sr="Smeštaj">Suites</a></li>
+        <li><a href="gallery.html" data-sr="Galerija">Gallery</a></li>
+        <li><a href="contact.html" data-sr="Kontakt">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Usluge">Services</div>
+      <ul class="f-links">
+        <li><a href="services.html#boarding" data-sr="Smeštaj">Boarding</a></li>
+        <li><a href="services.html#training" data-sr="Održavanje treninga">Training Maintenance</a></li>
+        <li><a href="services.html#play" data-sr="Igra i uživanje">Play &amp; Enjoyment</a></li>
+        <li><a href="services.html#grooming" data-sr="Nega i spa">Grooming &amp; Spa</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-sr="Kontakt">Contact</div>
+      <ul class="f-links">
+        <li><a href="mailto:Simpordogcentar1@gmail.com">Simpordogcentar1@gmail.com</a></li>
+        <li><a href="tel:+38164491903">+381 64 4919030</a></li>
+        <li data-sr="Srbija · Šumadija">Serbia · Šumadija</li>
+        <li>FCI 3428</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-bottom-left" data-sr="© 2026 Simpor Dog Resort. Sva prava zadržana.">© 2026 Simpor Dog Resort. All rights reserved.</div>
+    <div class="f-fci-badge" data-sr-html="FCI <span>3428</span> · Osnovan <span>1994</span>">FCI <span>3428</span> · Est. <span>1994</span></div>
+  </div>
+</footer>
+
+<script>
+  // Contact form — opens mailto with prefilled body
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    const subject = encodeURIComponent('[Simpor Resort] ' + (f.subject.value || 'Inquiry'));
+    const body = encodeURIComponent(
+      'Name: ' + f.name.value + '\n' +
+      'Email: ' + f.email.value + '\n' +
+      'Phone: ' + (f.phone.value || '—') + '\n\n' +
+      f.message.value
+    );
+    window.location.href = 'mailto:Simpordogcentar1@gmail.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
