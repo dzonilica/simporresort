@@ -341,6 +341,10 @@ document.getElementById('pgLightbox')?.addEventListener('click', e => {
   if (e.target.id === 'pgLightbox') closePgLb();
 });
 
+document.querySelectorAll('.video-showcase-item[data-pg-idx]').forEach(el => {
+  el.addEventListener('click', () => openPgLb(parseInt(el.dataset.pgIdx, 10)));
+});
+
 
 /* ─── RESORT GALLERY LIGHTBOX ─── */
 const _rgItems = [
