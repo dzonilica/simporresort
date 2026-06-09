@@ -93,7 +93,6 @@ button { font-family:inherit; }
 .nav-logo-img { height:36px; width:auto; object-fit:contain; }
 .nav-logo-text span { color:var(--gold-light); }
 #nav.scrolled .nav-logo-text span { color:var(--gold); }
-.nav-right { display:flex; align-items:center; gap:32px; }
 .nav-links { display:flex; gap:40px; list-style:none; }
 .nav-links a {
   color:rgba(255,255,255,0.78); font-size:10px;
