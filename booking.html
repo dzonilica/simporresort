@@ -292,9 +292,11 @@
 
 <script type="module">
   import {
-    supabase, RESERVATIONS_TABLE, PRICING,
-    nightsBetween, calcEstimate, fmtMoney, shortRef
+    PRICING,
+    nightsBetween
   } from './supabase-client.js';
+
+  const WEB3FORMS_KEY = 'af705a03-2030-4502-bd9e-44df7093fbe3';
 
   const form = document.getElementById('bookingForm');
   const successBox = document.getElementById('bookingSuccess');
@@ -379,57 +381,67 @@
     }
 
     const svcs = selectedServices();
-    const total = calcEstimate(roomType.value, svcs, nights);
-
     const data = Object.fromEntries(new FormData(form).entries());
+
+    const localRef = 'SR-' + Date.now().toString(36).toUpperCase() + '-' +
+                     Math.random().toString(36).slice(2, 6).toUpperCase();
+
+    const svcLabels = svcs.map(s => PRICING.services[s]?.label || s).join(', ') || 'None';
+
     const payload = {
-      owner_name:   data.owner_name?.trim(),
-      owner_email:  data.owner_email?.trim(),
-      owner_phone:  data.owner_phone?.trim(),
-      dog_name:     data.dog_name?.trim(),
-      dog_breed:    data.dog_breed?.trim() || null,
-      dog_age:      data.dog_age?.trim() || null,
-      dog_weight:   data.dog_weight?.trim() || null,
-      dog_gender:   data.dog_gender || null,
-      dog_neutered: !!data.dog_neutered,
-      dog_vaccinated: !!data.dog_vaccinated,
-      dog_temperament: data.dog_temperament || null,
-      check_in:     data.check_in,
-      check_out:    data.check_out,
-      room_type:    data.room_type,
-      services:     svcs,
-      food_brand:   data.food_brand?.trim() || null,
-      medication:   data.medication?.trim() || null,
-      special_notes: data.special_notes?.trim() || null,
-      total_estimate: total,
-      status: 'pending'
+      access_key: WEB3FORMS_KEY,
+      subject: '[Simpor Resort] New reservation request — ' + (data.owner_name || 'Guest') +
+               ' (' + data.dog_name + ')',
+      from_name: data.owner_name,
+      reference: localRef,
+      owner_name: data.owner_name,
+      owner_email: data.owner_email,
+      owner_phone: data.owner_phone,
+      dog_name: data.dog_name,
+      dog_breed: data.dog_breed || '—',
+      dog_age: data.dog_age || '—',
+      dog_weight: data.dog_weight || '—',
+      dog_gender: data.dog_gender || '—',
+      dog_temperament: data.dog_temperament || '—',
+      dog_neutered: data.dog_neutered ? 'Yes' : 'No',
+      dog_vaccinated: data.dog_vaccinated ? 'Yes' : 'No',
+      check_in: data.check_in,
+      check_out: data.check_out,
+      nights: nights,
+      room_type: data.room_type,
+      services: svcLabels,
+      food_brand: data.food_brand || '—',
+      medication: data.medication || '—',
+      special_notes: data.special_notes || '—'
     };
 
     submitBtn.disabled = true;
     submitBtn.textContent = SR() ? 'Slanje…' : 'Sending…';
 
-    const { data: inserted, error } = await supabase
-      .from(RESERVATIONS_TABLE)
-      .insert(payload)
-      .select()
-      .single();
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.message || 'Submission failed');
+      }
 
-    submitBtn.disabled = false;
-    submitBtn.textContent = SR() ? 'Pošalji zahtev za rezervaciju' : 'Request Reservation';
-
-    if (error) {
-      console.error(error);
+      successRef.textContent = localRef;
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      console.error(err);
       errBox.textContent = SR()
-        ? 'Žao nam je — rezervacija trenutno ne može da se pošalje. Pokušajte ponovo ili nas pozovite. (' + (error.message || 'Nepoznata greška') + ')'
-        : 'Sorry — we could not submit your reservation right now. Please try again or call us directly. (' + (error.message || 'Unknown error') + ')';
+        ? 'Žao nam je — rezervacija trenutno ne može da se pošalje. Pokušajte ponovo ili nas pozovite. (' + err.message + ')'
+        : 'Sorry — we could not submit your reservation right now. Please try again or call us directly. (' + err.message + ')';
       errBox.style.display = 'block';
-      return;
+      submitBtn.disabled = false;
+      submitBtn.textContent = SR() ? 'Pošalji zahtev za rezervaciju' : 'Request Reservation';
     }
-
-    successRef.textContent = shortRef(inserted.id);
-    form.style.display = 'none';
-    successBox.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 

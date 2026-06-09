@@ -102,6 +102,41 @@
   </div>
 </section>
 
+<!-- ACCOMMODATION GALLERY -->
+<section class="section alt">
+  <div class="section-wrap">
+    <div style="max-width:780px;">
+      <p class="eyebrow fade-up" data-sr="Pogled iznutra">Inside Look</p>
+      <h2 class="section-h2 fade-up" data-sr-html="Smeštaj u <em>slikama</em>">Suites in <em>Pictures</em></h2>
+      <p class="section-lead fade-up" data-sr="Kliknite na bilo koju sliku za prikaz u punoj veličini.">Click any image to view it in full.</p>
+    </div>
+
+    <div class="full-gallery fade-up">
+      <div class="fg-item wide"><img src="images/res.jpg" alt="Suite exterior"/></div>
+      <div class="fg-item"><img src="images/res1.jpg" alt="Suite interior"/></div>
+      <div class="fg-item"><img src="images/res2.jpg" alt="Climate-controlled space"/></div>
+      <div class="fg-item tall"><img src="images/res3.jpg" alt="Grounds"/></div>
+      <div class="fg-item"><img src="images/res4.jpg" alt="Care area"/></div>
+      <div class="fg-item"><img src="images/res6.jpg" alt="Suite detail"/></div>
+      <div class="fg-item"><img src="images/res7.jpg" alt="Quiet rest area"/></div>
+      <div class="fg-item"><img src="images/res8.jpg" alt="Outdoor time"/></div>
+      <div class="fg-item"><img src="images/resort/00.jpeg" alt="Resort grounds"/></div>
+      <div class="fg-item"><img src="images/resort/12.jpeg" alt="Resort facility"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="fgLightbox">
+  <div class="lb-wrap">
+    <img id="fgLbImg" class="lb-media" src="" alt=""/>
+    <button class="lb-close" id="fgLbClose" aria-label="Close">×</button>
+    <button class="lb-nav prev" id="fgLbPrev" aria-label="Previous">&#8592;</button>
+    <button class="lb-nav next" id="fgLbNext" aria-label="Next">&#8594;</button>
+    <div class="lb-info" id="fgLbInfo"></div>
+  </div>
+</div>
+
 <!-- FAQ -->
 <section class="section alt">
   <div class="section-wrap">
@@ -195,6 +230,41 @@
       item.classList.toggle('open');
     });
   });
+
+  // Suite gallery lightbox
+  (function(){
+    const items = Array.from(document.querySelectorAll('.fg-item img'));
+    const lb = document.getElementById('fgLightbox');
+    if (!lb || !items.length) return;
+    const lbImg = document.getElementById('fgLbImg');
+    const lbInfo = document.getElementById('fgLbInfo');
+    const lbClose = document.getElementById('fgLbClose');
+    const lbPrev = document.getElementById('fgLbPrev');
+    const lbNext = document.getElementById('fgLbNext');
+    let idx = 0;
+
+    function open(i) {
+      idx = i;
+      lbImg.src = items[idx].src;
+      if (lbInfo) lbInfo.textContent = (idx+1) + ' / ' + items.length;
+      lb.classList.add('open');
+    }
+    function close() { lb.classList.remove('open'); }
+    function next() { open((idx+1) % items.length); }
+    function prev() { open((idx-1+items.length) % items.length); }
+
+    items.forEach((img, i) => img.parentElement.addEventListener('click', () => open(i)));
+    if (lbClose) lbClose.addEventListener('click', close);
+    if (lbNext) lbNext.addEventListener('click', next);
+    if (lbPrev) lbPrev.addEventListener('click', prev);
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+  })();
 </script>
 
 </body>

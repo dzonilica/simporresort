@@ -153,9 +153,16 @@
               <textarea name="message" required placeholder="Tell us about your dog and what you're looking for…" data-sr-placeholder="Recite nam o svom psu i šta vam je potrebno…"></textarea>
             </div>
           </div>
-          <button type="submit" class="booking-submit" data-sr="Pošalji poruku">Send Message</button>
+          <button type="submit" class="booking-submit" id="contactSubmit" data-sr="Pošalji poruku">Send Message</button>
           <p class="booking-note" data-sr="Odgovaramo u roku od nekoliko sati. Za hitne stvari pozovite direktno.">We will reply within a few hours. For urgent matters, please call directly.</p>
+          <div id="contactError" style="display:none; margin-top:18px; padding:14px 18px; background:rgba(227,106,106,.08); border:1px solid rgba(227,106,106,.4); color:#e36a6a; font-size:13px;"></div>
         </form>
+
+        <div id="contactSuccess" class="booking-success" style="display:none; padding:40px 10px; text-align:center;">
+          <div class="booking-success-mark">✓</div>
+          <h2 data-sr-html="Poruka <em>poslata</em>">Message <em>Sent</em></h2>
+          <p data-sr="Hvala — javljamo se u roku od nekoliko sati.">Thank you — we will reply within a few hours.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -204,19 +211,59 @@
 </footer>
 
 <script>
-  // Contact form — opens mailto with prefilled body
-  document.getElementById('contactForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const f = e.target;
-    const subject = encodeURIComponent('[Simpor Resort] ' + (f.subject.value || 'Inquiry'));
-    const body = encodeURIComponent(
-      'Name: ' + f.name.value + '\n' +
-      'Email: ' + f.email.value + '\n' +
-      'Phone: ' + (f.phone.value || '—') + '\n\n' +
-      f.message.value
-    );
-    window.location.href = 'mailto:Simpordogcentar1@gmail.com?subject=' + subject + '&body=' + body;
-  });
+  // Contact form → Web3Forms
+  (function(){
+    const WEB3FORMS_KEY = 'af705a03-2030-4502-bd9e-44df7093fbe3';
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('contactSubmit');
+    const errBox = document.getElementById('contactError');
+    const successBox = document.getElementById('contactSuccess');
+    const SR = () => (localStorage.getItem('simpor-lang') || 'sr') === 'sr';
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      errBox.style.display = 'none';
+
+      const f = e.target;
+      const subjectLabel = f.subject.options[f.subject.selectedIndex]?.textContent?.trim() || 'Inquiry';
+
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: '[Simpor Resort] ' + subjectLabel,
+        from_name: f.name.value,
+        name: f.name.value,
+        email: f.email.value,
+        phone: f.phone.value || '—',
+        topic: subjectLabel,
+        message: f.message.value
+      };
+
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = SR() ? 'Slanje…' : 'Sending…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) throw new Error(data.message || 'Submission failed');
+
+        form.style.display = 'none';
+        successBox.style.display = 'block';
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        errBox.textContent = SR()
+          ? 'Žao nam je — poruka trenutno ne može da se pošalje. Pokušajte ponovo ili nas pozovite. (' + err.message + ')'
+          : 'Sorry — your message could not be sent right now. Please try again or call us directly. (' + err.message + ')';
+        errBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  })();
 </script>
 
 </body>
