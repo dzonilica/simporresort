@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /supabase-client.js
+Disallow: /novvmaterijal/
+
+# Block AI scrapers that don't respect attribution (allow GPTBot, ClaudeBot, etc. — they cite)
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://simpor-dogresort.com/sitemap.xml
+Host: https://simpor-dogresort.com

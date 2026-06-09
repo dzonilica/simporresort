@@ -49,12 +49,15 @@ document.addEventListener('DOMContentLoaded', () => applyLanguage(getLang()));
 
 /* ─── ACTIVE PAGE INDICATOR ─── */
 function markActivePage() {
-  const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  // Normalize current pathname: strip trailing slash and .html for clean-URL matching
+  let path = location.pathname.toLowerCase().replace(/\/$/, '').replace(/\.html$/, '');
+  if (path === '') path = '/';
   document.querySelectorAll('#nav .nav-links a, .mobile-overlay a').forEach(a => {
-    const href = (a.getAttribute('href') || '').toLowerCase().split('#')[0];
-    if (href === path || (path === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
+    let href = (a.getAttribute('href') || '').toLowerCase().split('#')[0].split('?')[0];
+    if (!href || href.startsWith('http')) return;
+    href = href.replace(/\/$/, '').replace(/\.html$/, '');
+    if (href === '') href = '/';
+    if (href === path) a.classList.add('active');
   });
 }
 document.addEventListener('DOMContentLoaded', markActivePage);
