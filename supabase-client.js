@@ -24,8 +24,7 @@ export const PRICING = {
     grooming:     { label: 'Grooming & Spa',        flat: 0 },
     play:         { label: 'Play & Enjoyment',      perNight: 0 },
     pickup:       { label: 'Pickup / Drop-off',     flat: 0 },
-    vet_checkup:  { label: 'Veterinary Check-in',   flat: 0 },
-    photos:       { label: 'Daily Photo Updates',   flat: 0 }
+    vet_checkup:  { label: 'Veterinary Check-in',   flat: 0 }
   },
   currency: '€'
 };
